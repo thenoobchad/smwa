@@ -4,7 +4,7 @@ import { ActivitySquare, BookOpenCheck, Facebook, Instagram, Linkedin, MailCheck
 
 export default function Home() {
   return (
-		<main className="w-full mx-auto max-w-5xl text-sm">
+		<main className="w-full mx-auto  max-w-5xl text-sm">
 			{/* Header carousel */}
 
 			<div className="px-2 w-full text-center bg-blue-950 py-2">
@@ -26,8 +26,12 @@ export default function Home() {
 			</div>
 			<header className="flex w-full flex-col px-2">
 				<div className="flex w-full justify-between">
-				  <div className="h-15 w-15">
-					  <img src="/images/excel-logo.png" alt="logo" className="object-contain"/>
+					<div className="h-15 w-15">
+						<img
+							src="/images/excel-logo.png"
+							alt="logo"
+							className="object-contain"
+						/>
 					</div>
 
 					<HamburgerMenu />
@@ -49,8 +53,10 @@ export default function Home() {
 
 			<section className="py-6 px-2 w-full">
 				<div className=" w-full grid gap-4 grid-cols-2 md:grid-cols-3">
-					<div className="flex gap-2 p-4 bg-blue-950 text-white">
-						<BookOpenCheck size={30} />{" "}
+					<div className="flex gap-2 p-4 bg-blue-950 text-white items-center">
+						<div className="w-10">
+							<BookOpenCheck size={30} />{" "}
+						</div>
 						<p className="flex flex-col">
 							Standard Curriculum{" "}
 							<span className="text-xs">
@@ -59,8 +65,10 @@ export default function Home() {
 							</span>
 						</p>
 					</div>
-					<div className="flex gap-2 p-4 bg-blue-950 text-white">
-						<UserRoundPen size={30} />{" "}
+					<div className="flex gap-2 p-4 bg-blue-950 text-white items-center">
+						<div className="w-10">
+							<UserRoundPen size={30} />{" "}
+						</div>
 						<p className="flex flex-col">
 							Certified Teachers{" "}
 							<span className="text-xs">
@@ -69,11 +77,13 @@ export default function Home() {
 							</span>
 						</p>
 					</div>
-					<div className="flex gap-2 p-4  bg-blue-950 text-white">
-						<TentTree size={30} />{" "}
+					<div className="flex gap-2 p-4  bg-blue-950 text-white items-center">
+						<div className="w-10">
+							<TentTree size={30} />{" "}
+						</div>
 						<p className="flex flex-col">
 							Conducive Environment{" "}
-							<span className="text-xs">
+							<span className="text-xs text-justify">
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 								Maiores, doloribus inventore voluptate veniam vitae ex!
 							</span>
@@ -85,15 +95,23 @@ export default function Home() {
 			{/* EXCEL INTRO */}
 
 			<section className="py-6 px-2 w-full">
-			  <div className="flex flex-col w-full justify-center items-center">
-				  <h4 className="text-2xl py-1 uppercase font-bold">Excel Grid International School</h4>
-				  <p className="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium iste commodi sequi. Nam ea alias architecto quae. Nulla at quaerat vero corrupti, recusandae, fugiat, nihil esse sit consequatur perspiciatis quidem consequuntur illo distinctio consectetur saepe doloremque quibusdam dolorem modi debitis.</p>
+				<div className="flex flex-col w-full justify-center items-center">
+					<h4 className="text-2xl py-1 uppercase font-bold">
+						Excel Grid International School
+					</h4>
+					<p className="text-justify">
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+						iste commodi sequi. Nam ea alias architecto quae. Nulla at quaerat
+						vero corrupti, recusandae, fugiat, nihil esse sit consequatur
+						perspiciatis quidem consequuntur illo distinctio consectetur saepe
+						doloremque quibusdam dolorem modi debitis.
+					</p>
 				</div>
-		  </section>
-		  
-		  <footer>
-			  <div></div>
-		  </footer>
+			</section>
+
+			<footer>
+				<div></div>
+			</footer>
 		</main>
 	);
 }
