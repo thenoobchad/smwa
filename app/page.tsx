@@ -59,9 +59,9 @@ export default function Home() {
 			</section>
 
 			<section className="py-6 px-2 w-full">
-				<div className=" w-full grid gap-4 grid-cols-2 md:grid-cols-3">
+				<div className=" w-full grid gap-4 grid-cols-1 sm:grid-cols-2">
 					<div className="flex gap-2 p-4 bg-blue-950 text-white items-center">
-						<div className="w-10">
+						<div className="w-10  bg-blue-900/50 p-1">
 							<BookOpenCheck
 								strokeWidth={1.6}
 								absoluteStrokeWidth
@@ -77,7 +77,7 @@ export default function Home() {
 						</p>
 					</div>
 					<div className="flex gap-2 p-4 bg-blue-950 text-white items-center">
-						<div className="w-10">
+						<div className="w-10 bg-blue-900/50 p-1">
 							<GraduationCap
 								strokeWidth={1.6}
 								absoluteStrokeWidth
@@ -93,7 +93,7 @@ export default function Home() {
 						</div>
 					</div>
 					<div className="flex gap-2 p-4  bg-blue-950 text-white items-center">
-						<div className="w-10">
+						<div className="w-10  bg-blue-900/50 p-1">
 							<MapPinHouse
 								strokeWidth={1.6}
 								absoluteStrokeWidth
