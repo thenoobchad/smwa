@@ -2,12 +2,13 @@ import React from 'react'
 import { HamburgerMenu } from './hamburger-menu';
 import { Phone } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const  Header = () => {
   return (
-		
-			<header className="flex w-full flex-col px-2 py-2">
-				<div className="flex w-full justify-between">
+		<header className="flex w-full flex-col px-2 py-2">
+			<div className="flex w-full justify-between">
+				<Link href="/" >
 					<div className="h-12 relative w-12 overflow-hidden">
 						<Image
 							fill
@@ -16,10 +17,10 @@ export const  Header = () => {
 							className="object-cover"
 						/>
 					</div>
+				</Link>
 
-					<HamburgerMenu />
-				</div>
-			</header>
-	
+				<HamburgerMenu />
+			</div>
+		</header>
 	);
 }
