@@ -1,10 +1,12 @@
+import { Faqs } from "@/components/faqs";
 import { HamburgerMenu } from "@/components/hamburger-menu";
-import { ActivitySquare, BookOpenCheck, Facebook, Instagram, Linkedin, MailCheck, TentTree, UserRoundPen } from "lucide-react";
+import { ActivitySquare, BookOpenCheck, Facebook, GraduationCap, Instagram, Linkedin, MailCheck, MapPinHouse, Phone, Plus } from "lucide-react";
+import Image from "next/image";
 
 
 export default function Home() {
   return (
-		<main className="w-full mx-auto  max-w-5xl text-sm">
+		<main className="w-full mx-auto text-sm relative">
 			{/* Header carousel */}
 
 			<div className="px-2 w-full text-center bg-blue-950 py-2">
@@ -13,31 +15,35 @@ export default function Home() {
 					Latest new - Examination for the Second Term begins soon
 				</p>
 			</div>
-			<div className="px-2 w-full text-center text-xs py-2 flex flex-col justify-center items-center gap-1">
+			<div className="px-2 w-full text-center text-sm py-2 flex flex-col justify-center items-center gap-1 border-b mb-2 border-blue-950">
 				<span className="flex gap-2">
 					{" "}
 					<MailCheck size={16} />
 					Excel Grid International School
 				</span>
-				<p className="flex gap-2 ">
+				<p className="flex gap-2 items-center">
 					Follow Us: <Facebook size={15} /> <Linkedin size={15} />{" "}
 					<Instagram size={15} />
 				</p>
 			</div>
 			<header className="flex w-full flex-col px-2">
 				<div className="flex w-full justify-between">
-					<div className="h-15 w-15">
-						<img
+					<div className="h-20 relative w-20 overflow-hidden">
+						<Image
+							fill
 							src="/images/excel-logo.png"
 							alt="logo"
-							className="object-contain"
+							className="object-cover"
 						/>
 					</div>
 
 					<HamburgerMenu />
 				</div>
-				<div className="flex flex-col ">
-					<span>Call Us</span>
+				<div className="flex w-full items-center justify-center gap-2 ">
+					<span className="flex gap-2">
+						<Phone size={18} />
+						Call Us:{" "}
+					</span>
 					<span>08152345415</span>
 				</div>
 			</header>
@@ -55,7 +61,11 @@ export default function Home() {
 				<div className=" w-full grid gap-4 grid-cols-2 md:grid-cols-3">
 					<div className="flex gap-2 p-4 bg-blue-950 text-white items-center">
 						<div className="w-10">
-							<BookOpenCheck size={30} />{" "}
+							<BookOpenCheck
+								strokeWidth={1.6}
+								absoluteStrokeWidth
+								size={30}
+							/>{" "}
 						</div>
 						<p className="flex flex-col">
 							Standard Curriculum{" "}
@@ -67,7 +77,11 @@ export default function Home() {
 					</div>
 					<div className="flex gap-2 p-4 bg-blue-950 text-white items-center">
 						<div className="w-10">
-							<UserRoundPen size={30} />{" "}
+							<GraduationCap
+								strokeWidth={1.6}
+								absoluteStrokeWidth
+								size={30}
+							/>{" "}
 						</div>
 						<p className="flex flex-col">
 							Certified Teachers{" "}
@@ -79,7 +93,11 @@ export default function Home() {
 					</div>
 					<div className="flex gap-2 p-4  bg-blue-950 text-white items-center">
 						<div className="w-10">
-							<TentTree size={30} />{" "}
+							<MapPinHouse
+								strokeWidth={1.6}
+								absoluteStrokeWidth
+								size={30}
+							/>{" "}
 						</div>
 						<p className="flex flex-col">
 							Conducive Environment{" "}
@@ -99,18 +117,74 @@ export default function Home() {
 					<h4 className="text-2xl py-1 uppercase font-bold">
 						Excel Grid International School
 					</h4>
-					<p className="text-justify">
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-						iste commodi sequi. Nam ea alias architecto quae. Nulla at quaerat
-						vero corrupti, recusandae, fugiat, nihil esse sit consequatur
-						perspiciatis quidem consequuntur illo distinctio consectetur saepe
-						doloremque quibusdam dolorem modi debitis.
-					</p>
+					<div>
+						<p className="text-justify">
+							Excelgrid Foundation School was established in 2009 with Excel
+							Nursery and Primary School, PortHarcort, Rivers, Nigeria
+						</p>
+
+						<p className="text-justify">
+							Our Aim at Excelgrid Foundation School is to be widely acclaimed
+							as a school that trains and turns out students who have been
+							adequately prepared for tertiary education and life.
+						</p>
+
+						<p className="text-justify">
+							Our Mission at Excelgrid Foundation School is to produce future
+							leaders with excellence as mode of living.
+						</p>
+					</div>
 				</div>
 			</section>
 
-			<footer>
-				<div></div>
+			<section className="py-6 px-2 w-full">
+				<div className="flex flex-col w-full justify-center items-center">
+					<h4 className="text-xl py-2 uppercase font-bold">
+						Frequently Asked Questions
+					</h4>
+					<Faqs/>
+				</div>
+			</section>
+
+			<footer className="bg-zinc-900 text-white px-2 py-4">
+				<div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
+					<div className="flex flex-col">
+						<p>
+							Carscar Street, Nkpor Rumuolumeni Port Harcourt, Rivers, Nigeria
+						</p>
+						<p className="flex flex-col">
+							<span>0815285143</span>
+							<span>chinyereelueme@gmail.com</span>
+						</p>
+					</div>
+					<div>
+						<h4>About Us</h4>
+						<ul>
+							<li>Home</li>
+							<li>About Us</li>
+							<li>Academics</li>
+							<li>Contact</li>
+						</ul>
+					</div>
+					<div>
+						<h4>Admissions</h4>
+						<p>Admission Process</p>
+					</div>
+					<div>
+						<h4>Academics</h4>
+						<ul>
+							<li>Early Years</li>
+							<li>Primary</li>
+							<li></li>Secondary
+						</ul>
+					</div>
+				</div>
+				<div className="flex items-center w-full justify-center py-2 border-t border-zinc-400 text-sm">
+					<p>
+						Copyright All Right Reserved 2024. Excelgrid Foundation School, Port
+						Harcourt, NIgeria
+					</p>
+				</div>
 			</footer>
 		</main>
 	);
