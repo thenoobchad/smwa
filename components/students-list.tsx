@@ -1,4 +1,4 @@
-"us client"
+"use client"
 
 import { useState } from 'react'
 import { StudentDetails } from './student-details'

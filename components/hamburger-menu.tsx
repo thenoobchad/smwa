@@ -28,7 +28,7 @@ const menuList = [
 		icon: ChartNoAxesGantt,
 	},
 	{
-		title: "class",
+		title: "classes",
 		icon: Folder,
 		submenu: [
 			{
