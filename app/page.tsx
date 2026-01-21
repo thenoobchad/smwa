@@ -68,13 +68,13 @@ export default function Home() {
 								size={30}
 							/>{" "}
 						</div>
-						<p className="flex flex-col gap-2">
+						<div className="flex flex-col gap-2">
 							<h4 className="font-semibold">Standard Curriculum </h4>
 							<span className="text-sm text-justify">
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 								Maiores, doloribus inventore voluptate veniam vitae ex!
 							</span>
-						</p>
+						</div>
 					</div>
 					<div className="flex gap-2 p-4 bg-blue-950 text-white items-center">
 						<div className="w-10 bg-blue-900/50 p-1">
