@@ -1,6 +1,6 @@
 import { Faqs } from "@/components/faqs";
 import { HamburgerMenu } from "@/components/hamburger-menu";
-import { ActivitySquare, BookOpenCheck, Facebook, GraduationCap, Instagram, Linkedin, MailCheck, MapPinHouse, Phone, Plus } from "lucide-react";
+import { BookOpenCheck, Facebook, GraduationCap, Instagram, Linkedin, MailCheck, MapPinHouse, Phone,  } from "lucide-react";
 import Image from "next/image";
 
 
@@ -48,8 +48,9 @@ export default function Home() {
 				</div>
 			</header>
 			<section className="py-6 px-2">
-				<div className="h-70 w-full overflow-hidden">
-					<img
+				<div className="h-70 w-full relative overflow-hidden">
+					<Image
+						fill
 						src="/images/backg.png"
 						alt="background"
 						className="object-cover w-full h-full"
@@ -67,9 +68,9 @@ export default function Home() {
 								size={30}
 							/>{" "}
 						</div>
-						<p className="flex flex-col">
-							Standard Curriculum{" "}
-							<span className="text-xs">
+						<p className="flex flex-col gap-2">
+							<h4 className="font-semibold">Standard Curriculum </h4>
+							<span className="text-sm text-justify">
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 								Maiores, doloribus inventore voluptate veniam vitae ex!
 							</span>
@@ -83,13 +84,13 @@ export default function Home() {
 								size={30}
 							/>{" "}
 						</div>
-						<p className="flex flex-col">
-							Certified Teachers{" "}
-							<span className="text-xs">
+						<div className="flex flex-col gap-2">
+							<h4 className="font-semibold">Certified Teachers </h4>
+							<span className="text-sm text-justify">
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 								Maiores, doloribus inventore voluptate veniam vitae ex!
 							</span>
-						</p>
+						</div>
 					</div>
 					<div className="flex gap-2 p-4  bg-blue-950 text-white items-center">
 						<div className="w-10">
@@ -99,13 +100,13 @@ export default function Home() {
 								size={30}
 							/>{" "}
 						</div>
-						<p className="flex flex-col">
-							Conducive Environment{" "}
-							<span className="text-xs text-justify">
+						<div className="flex flex-col gap-2">
+							<h4 className="font-semibold">Conducive Environment </h4>
+							<span className="text-sm text-justify">
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 								Maiores, doloribus inventore voluptate veniam vitae ex!
 							</span>
-						</p>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -142,7 +143,7 @@ export default function Home() {
 					<h4 className="text-xl py-2 uppercase font-bold">
 						Frequently Asked Questions
 					</h4>
-					<Faqs/>
+					<Faqs />
 				</div>
 			</section>
 
