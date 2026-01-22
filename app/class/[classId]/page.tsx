@@ -12,7 +12,7 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
         if (id === "jss3") return "JSS 3: Pearl Elites";
     }
   return (
-		<main className="p-2">
+		<main className="p-2 ">
 			<Header />
 			<div className='flex flex-col gap-2'>
 				<h4 className="text-center p-1 border-b border-zinc-300">

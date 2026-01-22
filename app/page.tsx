@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-		<main className="w-full mx-auto text-sm relative">
+		<main className="w-full mx-auto text-sm relative min-h-screen">
 			{/* Header carousel */}
 
 			<div className="px-2 w-full text-center bg-blue-950 py-2">
@@ -16,7 +16,7 @@ export default function Home() {
 				</p>
 			</div>
 			<div className="px-2 w-full text-center text-sm py-2 flex flex-col justify-center items-center gap-1 border-b mb-2 border-blue-950">
-				<span className="flex gap-2">
+				<span className="flex gap-2 items-center">
 					{" "}
 					<MailCheck size={16} />
 					Excel Grid International School
@@ -48,7 +48,7 @@ export default function Home() {
 				</div>
 			</header>
 			<section className="py-6 px-2">
-				<div className="h-70 w-full relative overflow-hidden">
+				<div className="h-70 md:h-120 lg:h-130 w-full relative overflow-hidden">
 					<Image
 						fill
 						src="/images/backg.png"
@@ -141,13 +141,14 @@ export default function Home() {
 			<section className="py-6 px-2 w-full">
 				<div className="flex flex-col w-full justify-center items-center">
 					<h4 className="text-xl py-2 uppercase font-bold">
-						Frequently Asked Questions
+						Frequently Asked Questions 
 					</h4>
 					<Faqs />
 				</div>
 			</section>
 
-			<footer className="bg-zinc-900 text-white px-2 py-4">
+		  
+			<footer className="bg-zinc-900 text-white px-2 py-4 mt-auto relative">
 				<div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
 					<div className="flex flex-col">
 						<p>

@@ -7,6 +7,7 @@ import {
 	Folder,
 	PersonStandingIcon,
 	Phone,
+	UserLock,
 	Users,
 	X,
 } from "lucide-react";
@@ -98,12 +99,19 @@ export const HamburgerMenu = () => {
 											className=" bg-blue-600/10  capitalize p-1 flex gap-3 items-center  blue-pink-900 cursor-pointer">
 											<menuItem.icon size={18} />
 											{menuItem.title}
-											<span className="ml-auto">{isSubActive ? <ChevronDown size={18}/> :<ChevronRight size={18} />}</span>
+											<span className="ml-auto">
+												{isSubActive ?
+													<ChevronDown size={18} />
+												:	<ChevronRight size={18} />}
+											</span>
 										</li>
 										{isSubActive && (
 											<ul className="ml-7  flex flex-col gap-2">
 												{menuItem.submenu?.map((nav) => (
-													<Link href={`/class/${nav.href}`} className="uppercase" key={nav.href}>
+													<Link
+														href={`/class/${nav.href}`}
+														className="uppercase"
+														key={nav.href}>
 														{nav.title}
 													</Link>
 												))}
@@ -113,16 +121,22 @@ export const HamburgerMenu = () => {
 								);
 							} else {
 								return (
-									<li
+									<Link
 										key={i}
-										onClick={() => setIsSubActive(!isSubActive)}
+										href={`/${menuItem.title}`}
 										className="bg-blue-600/10 capitalize p-1 flex gap-3 items-center  blue-pink-900 cursor-pointer">
 										<menuItem.icon size={18} />
 										{menuItem.title}
-									</li>
+									</Link>
 								);
 							}
 						})}
+						<div className="flex flex-col gap-3">
+							<Link href="/enroll/">Enrol Student</Link>
+							<Link href="/admin/" className="flex gap-3">
+								<UserLock size={18}/>
+								Admin Portal</Link>
+						</div>
 						<p className="flex mt-auto text-xs gap-2 flex-col">
 							<span className="flex gap-2">
 								<Phone size={15} />
