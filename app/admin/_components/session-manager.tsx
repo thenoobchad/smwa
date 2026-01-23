@@ -30,8 +30,8 @@ export const SessionManager = () => {
 		<div>
 			<form
 				onSubmit={handleSubmit}
-				className="flex gap-2 my-4 w-full flex-col sm:flex-row items-center border border-zinc-700 rounded-xs p-4 py-6">
-				<section className=" grid grid-cols-2  gap-2 items-center text-sm w-full justify-center">
+				className="flex gap-2 my-4 w-full flex-col sm:flex-row items-center border-y-3 border-zinc-300 rounded-xs p-3 py-4">
+				<section className=" grid grid-cols-2  gap-2 items-center text-md w-full justify-center">
 					<h3 className="whitespace-nowrap ">Academic Sessions:</h3>
 					<div className=" p-2 bg-zinc-100  w-full flex">
 						<input
@@ -44,7 +44,7 @@ export const SessionManager = () => {
 					</div>
 				</section>
 
-				<section className=" grid grid-cols-2  gap-2 items-center text-sm w-full">
+				<section className=" grid grid-cols-2  gap-2 items-center text-md w-full">
 					<h3 className="whitespace-nowrap">Select Term:</h3>
 					<div className=" p-2 bg-zinc-100  w-full flex gap-2">
 						<ToolCase size={18} className="text-zinc-400" />

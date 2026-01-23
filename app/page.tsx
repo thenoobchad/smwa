@@ -63,7 +63,7 @@ export default function Home() {
 					<div className="flex gap-2 p-4 border border-zinc-300 items-center">
 						<div className="w-12 h-12 text-blue-700 bg-blue-100 p-2">
 							<BookOpenCheck
-								strokeWidth={1.6}
+								strokeWidth={2}
 								absoluteStrokeWidth
 								size={30}
 							/>{" "}
@@ -79,7 +79,7 @@ export default function Home() {
 					<div className="flex gap-2 p-4 border border-zinc-300 items-center">
 						<div className="w-12 h-12 bg-orange-100 text-orange-700 p-2">
 							<GraduationCap
-								strokeWidth={1.6}
+								strokeWidth={2}
 								absoluteStrokeWidth
 								size={30}
 							/>{" "}
@@ -95,7 +95,7 @@ export default function Home() {
 					<div className="flex gap-2 p-4 border border-zinc-300 items-center">
 						<div className="min-w-12 h-12  text-yellow-700 bg-yellow-100 p-2 ">
 							<BetweenHorizonalEnd
-								strokeWidth={1.6}
+								strokeWidth={2}
 								absoluteStrokeWidth
 								size={30}
 							/>{" "}

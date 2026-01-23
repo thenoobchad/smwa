@@ -5,15 +5,15 @@ import { getActiveSession } from '@/lib/queries';
 
 export default async function SettingsPage() {
 
-	const [session] = await getActiveSession()
+	const [session] = await getActiveSession() || []
 
   return (
 		<div className="p-2">
 			<h1 className='text-md mb-2'>School Configuration</h1>
 			<div className="w-full flex flex-col gap-2">
 				<h2 className='text-sm text-zinc-600'>Academic Controls</h2>
-				<div className=" bg-blue-100  w-full flex gap-2 justify-center p-4">
-					<AlertCircle size={20} className="text-blue-600" />{" "}
+				<div className=" bg-blue-100  w-full flex gap-2  p-4">
+					<AlertCircle  className="text-blue-600" />{" "}
 					<p className="text-center items-center  text-sm text-blue-600">
 						Changing these settings will update the enrollment context for all
 						teachers.
