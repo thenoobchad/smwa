@@ -4,10 +4,11 @@ export const termEnum = pgEnum("term", ["first", "second", "third"])
 
 
 export const academicSessions = pgTable("academic_sessions", {
-    id: uuid("id").primaryKey().defaultRandom(),
-    name: varchar("name", { length: 50 }).notNull(),
-    isCurrent: boolean("is_current").default(false)
-})
+	id: uuid("id").primaryKey().defaultRandom(),
+	name: varchar("name", { length: 50 }).notNull(),
+	isCurrent: boolean("is_current").default(true),
+	term: termEnum("term").notNull(),
+});
 
 
 export const students = pgTable("students", {
@@ -31,7 +32,6 @@ export const classes = pgTable("classes", {
 	sessionId: uuid("session_id")
 		.references(() => academicSessions.id)
         .notNull(),
-    
 });
 
 
@@ -43,12 +43,12 @@ export const enrollments = pgTable("enrollments", {
     classId: uuid("class_id").references(() => classes.id, {onDelete:"cascade"}),
     sessionId: uuid("session_id").references(() => academicSessions.id),
 
-    term: termEnum("term").notNull(),
+    
     status: varchar("status", { length: 20 }).default("active"),
     enrolledAt: timestamp("enrolled_at").defaultNow(),
     updatedAt:timestamp("updated_at").defaultNow().notNull()
 },
 
-    (table) => ({
-    uniqueEnrollment: unique().on(table.studentId,table.classId,table.sessionId, table.term)
-}))
+    (table) => [unique().on(table.studentId,table.classId,table.sessionId)
+	]
+)
