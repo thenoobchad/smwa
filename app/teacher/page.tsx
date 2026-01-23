@@ -5,8 +5,7 @@ import React from 'react'
 export default function TeachersPage() {
   return (
 		<div className="p-2">
-			<Header />
-
+			
 			<div className="flex flex-col gap-2 w-full">
 				<div className="w-full flex gap-2 flex-col items-center">
 					<h4 className="text-lg py-4 underline">
