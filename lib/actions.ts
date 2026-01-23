@@ -28,8 +28,6 @@ export async function createActiveSession(formData: FormData) {
 		throw new Error("Invalid term");
 	}
 
-	console.log("AAAAAAAA");
-
 	try {
 		const existingSession = await db
 			.select()
@@ -41,13 +39,9 @@ export async function createActiveSession(formData: FormData) {
 				),
 			);
 
-		console.log(existingSession);
-
-		console.log("BBBBBBBB");
 		if (existingSession.length > 0) {
 			return { success: false, message: "Data already exists." };
 		}
-		console.log("EEEEEEE");
 
 		await db.batch([
 			db.update(academicSessions).set({ isCurrent: false }),

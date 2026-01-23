@@ -60,8 +60,8 @@ export default function Home() {
 
 			<section className="py-6 px-2 w-full">
 				<div className=" w-full grid gap-4 grid-cols-1 sm:grid-cols-2">
-					<div className="flex gap-2 p-4 bg-blue-950 text-white items-center">
-						<div className="w-10  bg-blue-900/50 p-1">
+					<div className="flex gap-2 p-4 border border-zinc-300 items-center">
+						<div className="w-10 text-blue-700 bg-blue-100 p-1.5">
 							<BookOpenCheck
 								strokeWidth={1.6}
 								absoluteStrokeWidth
@@ -76,8 +76,8 @@ export default function Home() {
 							</span>
 						</div>
 					</div>
-					<div className="flex gap-2 p-4 bg-blue-950 text-white items-center">
-						<div className="w-10 bg-blue-900/50 p-1">
+					<div className="flex gap-2 p-4 border border-zinc-300 items-center">
+						<div className="w-10 bg-orange-100 text-orange-700 p-1">
 							<GraduationCap
 								strokeWidth={1.6}
 								absoluteStrokeWidth
@@ -92,8 +92,8 @@ export default function Home() {
 							</span>
 						</div>
 					</div>
-					<div className="flex gap-2 p-4  bg-blue-950 text-white items-center">
-						<div className="w-10  bg-blue-900/50 p-1">
+					<div className="flex gap-2 p-4 border border-zinc-300 rounded-lg items-center">
+						<div className="min-w-12 h-12  text-yellow-700 bg-yellow-100 p-2 rounded-lg">
 							<MapPinHouse
 								strokeWidth={1.6}
 								absoluteStrokeWidth
@@ -141,13 +141,12 @@ export default function Home() {
 			<section className="py-6 px-2 w-full">
 				<div className="flex flex-col w-full justify-center items-center">
 					<h4 className="text-xl py-2 uppercase font-bold">
-						Frequently Asked Questions 
+						Frequently Asked Questions
 					</h4>
 					<Faqs />
 				</div>
 			</section>
 
-		  
 			<footer className="bg-zinc-900 text-white px-2 py-4 mt-auto relative">
 				<div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
 					<div className="flex flex-col">
