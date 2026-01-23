@@ -1,6 +1,6 @@
 import { Faqs } from "@/components/faqs";
 import { HamburgerMenu } from "@/components/hamburger-menu";
-import { BookOpenCheck, Facebook, GraduationCap, Instagram, Linkedin, MailCheck, MapPinHouse, Phone,  } from "lucide-react";
+import { BetweenHorizonalEnd, BookOpenCheck, Facebook, GraduationCap, Instagram, Linkedin, MailCheck, MapPinHouse, Phone,  } from "lucide-react";
 import Image from "next/image";
 
 
@@ -61,7 +61,7 @@ export default function Home() {
 			<section className="py-6 px-2 w-full">
 				<div className=" w-full grid gap-4 grid-cols-1 sm:grid-cols-2">
 					<div className="flex gap-2 p-4 border border-zinc-300 items-center">
-						<div className="w-10 text-blue-700 bg-blue-100 p-1.5">
+						<div className="w-12 h-12 text-blue-700 bg-blue-100 p-2">
 							<BookOpenCheck
 								strokeWidth={1.6}
 								absoluteStrokeWidth
@@ -77,7 +77,7 @@ export default function Home() {
 						</div>
 					</div>
 					<div className="flex gap-2 p-4 border border-zinc-300 items-center">
-						<div className="w-10 bg-orange-100 text-orange-700 p-1">
+						<div className="w-12 h-12 bg-orange-100 text-orange-700 p-2">
 							<GraduationCap
 								strokeWidth={1.6}
 								absoluteStrokeWidth
@@ -92,9 +92,9 @@ export default function Home() {
 							</span>
 						</div>
 					</div>
-					<div className="flex gap-2 p-4 border border-zinc-300 rounded-lg items-center">
-						<div className="min-w-12 h-12  text-yellow-700 bg-yellow-100 p-2 rounded-lg">
-							<MapPinHouse
+					<div className="flex gap-2 p-4 border border-zinc-300 items-center">
+						<div className="min-w-12 h-12  text-yellow-700 bg-yellow-100 p-2 ">
+							<BetweenHorizonalEnd
 								strokeWidth={1.6}
 								absoluteStrokeWidth
 								size={30}
