@@ -1,6 +1,6 @@
 import React from 'react'
 import { SessionManager } from '../_components/session-manager'
-import { AlertCircle } from 'lucide-react'
+import { AlertCircle, Settings2 } from 'lucide-react'
 import { getActiveSession } from '@/lib/queries';
 
 export default async function SettingsPage() {
@@ -9,9 +9,9 @@ export default async function SettingsPage() {
 
   return (
 		<div className="p-2">
-			<h1 className='text-md mb-2'>School Configuration</h1>
+			<h1 className='text-md uppercase mb-2 flex gap-2 items-center'><Settings2 size={18}/> School Configuration</h1>
 			<div className="w-full flex flex-col gap-2">
-				<h2 className='text-sm text-zinc-600'>Academic Controls</h2>
+				<h2 className='text-md text-zinc-600'>Academic Controls</h2>
 				<div className=" bg-blue-100  w-full flex gap-2  p-4">
 					<AlertCircle  className="text-blue-600" />{" "}
 					<p className="text-center items-center  text-sm text-blue-600">

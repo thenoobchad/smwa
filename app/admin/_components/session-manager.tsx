@@ -30,7 +30,7 @@ export const SessionManager = () => {
 		<div>
 			<form
 				onSubmit={handleSubmit}
-				className="flex gap-2 my-4 w-full flex-col sm:flex-row items-center border-y-3 border-zinc-300 rounded-xs p-3 py-4">
+				className="flex gap-2 my-4 w-full flex-col sm:flex-row items-center border-y border-zinc-500 rounded-xs p-3 py-4">
 				<section className=" grid grid-cols-2  gap-2 items-center text-md w-full justify-center">
 					<h3 className="whitespace-nowrap ">Academic Sessions:</h3>
 					<div className=" p-2 bg-zinc-100  w-full flex">
