@@ -137,7 +137,7 @@ export async function enrollStudent(formData: FormData) {
 			db.insert(grades).values(gradeData)
 		])
 
-		revalidatePath("/")
+		revalidatePath("/teacher/enroll");
 		return {success: true}
 	
 	} catch (error) {

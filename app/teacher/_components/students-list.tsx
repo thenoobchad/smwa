@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type StudentType = {
     id: string;
@@ -15,6 +15,13 @@ type StudentsEnrolledType = StudentType[]
 export const StudentsList = ({ students }: { students: StudentsEnrolledType }) => {
     const [enrolledStudents, setEnrolledStudents] =useState(students)
 
+	useEffect(() => {
+		function updateList() {
+			setEnrolledStudents(students)
+		}
+
+		updateList()
+	}, [students])
   return (
 		<div className="my-4">
 			{enrolledStudents ?
@@ -31,14 +38,19 @@ export const StudentsList = ({ students }: { students: StudentsEnrolledType }) =
 					<tbody className="divide-y divide-gray-200">
 						{enrolledStudents.map((student) => (
 							<tr key={student.id}>
-								<td className="px-4 py-3 text-gray-900">{student.admissionNumber}</td>
+								<td className="px-4 py-3 text-gray-900">
+									{student.admissionNumber}
+								</td>
 								<td>
-									{student.firstName} {student.lastName}
+									<p className="capitalize">{student.firstName}</p>{" "}
+									<p className="capitalize">{student.lastName}</p>
 								</td>
 								<td>{student.level}</td>
 
 								<td>
-									<button className="bg-yellow-100 text-yellow-700 px-2 py-2 cursor-pointer">Enter Scores</button>
+									<button className="bg-yellow-100 text-yellow-700 px-2 py-2 cursor-pointer">
+										Enter Scores
+									</button>
 								</td>
 							</tr>
 						))}
