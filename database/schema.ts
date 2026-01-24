@@ -1,4 +1,4 @@
-import {boolean, pgEnum, pgTable, timestamp, unique, uuid, varchar} from "drizzle-orm/pg-core"
+import {boolean, integer, pgEnum, pgTable, timestamp, unique, uuid, varchar} from "drizzle-orm/pg-core"
 
 export const termEnum = pgEnum("term", ["first", "second", "third"])
 
@@ -52,3 +52,14 @@ export const enrollments = pgTable("enrollments", {
     (table) => [unique().on(table.studentId,table.classId,table.sessionId)
 	]
 )
+
+export const grades = pgTable("grades", {
+	id: uuid("id").primaryKey().defaultRandom(),
+	enrollmentId: uuid("enrollment_id")
+		.notNull()
+		.references(() => enrollments.id, { onDelete: "cascade" }),
+	testScore: integer("test_score").default(0).notNull(),
+	examScore: integer("exam_score").default(0).notNull(),
+	totalScore: integer("total_score").default(0).notNull(),
+	updatedAt: timestamp("updated_at").defaultNow().notNull()
+});

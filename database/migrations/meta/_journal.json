@@ -15,6 +15,13 @@
       "when": 1769159880239,
       "tag": "0001_slim_puff_adder",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1769214437069,
+      "tag": "0002_peaceful_nightcrawler",
+      "breakpoints": true
     }
   ]
 }

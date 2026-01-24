@@ -1,8 +1,8 @@
 "use server";
 
 import { db } from "@/database/drizzzle";
-import { academicSessions } from "@/database/schema";
-import { and, eq, gte } from "drizzle-orm";
+import { academicSessions, classes, enrollments, grades, students, subjects } from "@/database/schema";
+import { and, eq, } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 export async function createActiveSession(formData: FormData) {
@@ -57,5 +57,91 @@ export async function createActiveSession(formData: FormData) {
 	} catch (error) {
 		console.error(error);
 		return { success: false, message: "failed to create session" };
+	}
+}
+
+export async function enrollStudent(formData: FormData) {
+	
+	const fullNameValue = formData.get("fullName");
+	const levelValue = formData.get("class");
+	const sessionIdValue = formData.get("session");
+	const termValue = formData.get("term");
+
+	if (
+		typeof fullNameValue !== "string" ||
+		typeof levelValue !== "string" ||
+		typeof sessionIdValue !== "string"
+	) {
+		throw new Error("Enter complete details.");
+	}
+
+	const fullName = fullNameValue.trim();
+	const level = levelValue.trim();
+	const sessionId = sessionIdValue.trim();
+	const term = typeof termValue === "string" ? termValue.trim() : undefined;
+
+	
+	const [firstName, ...rest] = fullName.split(/\s+/);
+	const lastName = rest.join(" ");
+	const admissionNum = `AD-${Date.now()}`;
+
+	try {
+		let levelClasses = await db
+			.select()
+			.from(classes)
+			.where(and(eq(classes.name, level), eq(classes.sessionId, sessionId)));
+
+		if (levelClasses.length === 0) {
+			const allSubject = await db.select().from(subjects);
+
+			if (allSubject.length > 0) {
+				
+			}
+			const inserted = await db.insert(classes).values(
+				allSubject.map((sub) => ({
+					name: level,
+					subjectId: sub.id,
+					sessionId: sessionId
+				}))
+			).returning()
+
+			levelClasses = inserted
+		}
+
+		const [newStudent] = await db.insert(students).values({
+			firstName: firstName,
+			lastName: lastName,
+			admissionNumber: admissionNum
+		}).returning()
+
+
+		const enrollmentData = levelClasses.map(cls => ({
+			id: crypto.randomUUID(),
+			studentId: newStudent.id,
+			classId: cls.id,
+			sessionId: sessionId,
+			term: term
+		}))
+
+
+		const gradeData = enrollmentData.map(enrol => ({
+			enrollmentId: enrol.id,
+			textScore: 0,
+			examScore: 0,
+			totalScore:0
+		}))
+
+
+		await db.batch([
+			db.insert(enrollments).values(enrollmentData),
+			db.insert(grades).values(gradeData)
+		])
+
+		revalidatePath("/")
+		return {success: true}
+	
+	} catch (error) {
+		console.error(error);
+		return { success: false, message: "failed to enroll student" };
 	}
 }
