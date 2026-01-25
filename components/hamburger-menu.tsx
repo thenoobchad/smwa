@@ -72,7 +72,7 @@ export const HamburgerMenu = () => {
 		<div className="sticky z-999 top-0 right-0">
 			<button
 				onClick={() => setIsOpen(true)}
-				className="h-10 w-10 bg-blue-950 flex items-center justify-center flex-col space-y-1 z-99 ">
+				className="h-10 w-10 bg-[#4c0121] flex items-center justify-center flex-col space-y-1 z-99 ">
 				<div
 					className={`bg-white h-1 w-7 transition-all delay-150 ${!isOpen ? "rotate-0" : "rotate-45 translate-y-1"}`}
 				/>
@@ -85,7 +85,7 @@ export const HamburgerMenu = () => {
 			{isOpen && (
 				<div
 					ref={menuRef}
-					className={`fixed z-990 top-0 p-6 pt-4 pb-4 right-0 bg-blue-950 h-dvh w-[60vw] sm:w-[40vw] md:w-[30vw] transition-all delay-150 ${isOpen ? "translate-x-0" : "translate-x-[200%]"}`}>
+					className={`fixed z-990 top-0 p-6 pt-4 pb-4 right-0 bg-[#4c0121] h-dvh w-[60vw] sm:w-[40vw] md:w-[30vw] transition-all delay-150 ${isOpen ? "translate-x-0" : "translate-x-[200%]"}`}>
 					<ul className="text-white h-full space-y-4">
 						<button onClick={() => setIsOpen(false)}>
 							<X />
@@ -96,7 +96,7 @@ export const HamburgerMenu = () => {
 									<div key={i} className="flex flex-col gap-2 w-full ">
 										<li
 											onClick={() => setIsSubActive(!isSubActive)}
-											className=" bg-blue-600/10  capitalize p-1 flex gap-3 items-center  blue-pink-900 cursor-pointer">
+											className="   capitalize p-1 flex gap-3 items-center  blue-pink-900 cursor-pointer">
 											<menuItem.icon size={18} />
 											{menuItem.title}
 											<span className="ml-auto">
@@ -124,7 +124,7 @@ export const HamburgerMenu = () => {
 									<Link
 										key={i}
 										href={`/${menuItem.title}`}
-										className="bg-blue-600/10 capitalize p-1 flex gap-3 items-center  blue-pink-900 cursor-pointer">
+										className="capitalize p-1 flex gap-3 items-center  blue-pink-900 cursor-pointer">
 										<menuItem.icon size={18} />
 										{menuItem.title}
 									</Link>
@@ -134,8 +134,9 @@ export const HamburgerMenu = () => {
 						<div className="flex flex-col gap-3">
 							<Link href="/enroll/">Enrol Student</Link>
 							<Link href="/admin/" className="flex gap-3">
-								<UserLock size={18}/>
-								Admin Portal</Link>
+								<UserLock size={18} />
+								Admin Portal
+							</Link>
 						</div>
 						<p className="flex mt-auto text-xs gap-2 flex-col">
 							<span className="flex gap-2">

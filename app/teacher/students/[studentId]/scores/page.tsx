@@ -1,5 +1,5 @@
 import { ScoreSheet } from "@/app/teacher/_components/score-sheet"
-import ScoreForm from "@/components/score-form"
+
 import { getStudentGrades } from "@/lib/actions"
 import { getActiveSession } from "@/lib/queries"
 

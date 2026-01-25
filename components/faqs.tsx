@@ -59,7 +59,7 @@ export const Faqs = () => {
 						className="flex gap-4  items-start">
 						<button
 							onClick={() => handleExpand(item.id)}
-							className="p-2 mb-2 bg-blue-600/10 text-blue-900 flex h-fit">
+							className="p-2 mb-2 bg-pink-100 text-pink-950 flex h-fit">
 							{item.isActive ?
 								<Minus size={18} />
 							:	<Plus size={18} />}

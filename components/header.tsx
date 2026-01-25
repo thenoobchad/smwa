@@ -8,7 +8,7 @@ export const  Header = () => {
   return (
 		<header className="flex w-full flex-col px-2 py-2">
 			<div className="flex w-full justify-between items-center">
-				<Link href="/" >
+				<Link href="/">
 					<div className="h-12 relative w-12 overflow-hidden">
 						<Image
 							fill
@@ -19,10 +19,12 @@ export const  Header = () => {
 					</div>
 				</Link>
 
-			  <div className='flex flex-col leading-3'>
-				  <h4 className='text-2xl uppercase text-blue-950 font-bold'>Excelgrid Foundation School</h4>
-				  <p className='italic text-xs'>Excellence through education...</p>
-				  </div>
+				<div className="flex flex-col leading-3">
+					<h4 className="text-2xl uppercase text-[#4c0121] font-bold">
+						Excelgrid Foundation School
+					</h4>
+					<p className="italic text-xs">Excellence through education...</p>
+				</div>
 			</div>
 		</header>
 	);

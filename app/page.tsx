@@ -9,7 +9,7 @@ export default function Home() {
 		<main className="w-full mx-auto text-sm relative min-h-screen">
 			{/* Header carousel */}
 
-			<div className="px-2 w-full text-center bg-blue-950 py-2">
+			<div className="px-2 w-full text-center bg-[#4c0121] py-2">
 				{" "}
 				<p className="text-white">
 					Latest new - Examination for the Second Term begins soon
@@ -28,7 +28,7 @@ export default function Home() {
 			</div>
 			<header className="flex w-full flex-col px-2">
 				<div className="flex w-full justify-between">
-					<div className="h-20 relative w-20 bg-red-500 overflow-hidden">
+					<div className="h-20 relative w-20 overflow-hidden">
 						<Image
 							fill
 							src="/images/excel-logo.png"

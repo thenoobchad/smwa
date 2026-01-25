@@ -5,10 +5,15 @@ import Link from 'next/link';
 
 export const BottomNav = () => {
   return (
-		<nav className='fixed sm:hidden bottom-0 left-0 right-0 bg-blue-950 border-t border-gray-200 px-4 pb-safe'>
-			<div className='h-16 flex justify-around items-center'>
+		<nav className="fixed sm:hidden bottom-0 left-0 right-0 bg-[#4c0121] border-t border-gray-200 px-4 pb-safe">
+			<div className="h-16 flex justify-around items-center">
 				<NavItem icon={<Home />} label="Home" path="/" active />
-				<NavItem icon={<Plus />} label="Enroll" path="/teacher/students" active />
+				<NavItem
+					icon={<Plus />}
+					label="Enroll"
+					path="/teacher/students"
+					active
+				/>
 				<NavItem icon={<Bell />} label="Alerts" path="" active />
 				<NavItem icon={<User />} label="Profile" path="" active />
 			</div>
