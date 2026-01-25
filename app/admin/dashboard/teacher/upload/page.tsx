@@ -2,7 +2,6 @@
 // import { subjects, students } from "@/db/schema";
 // import ScoreForm from "@/components/ScoreForm";
 
-import ScoreForm from "@/components/score-form";
 
 export default async function Page() {
   // Fetch everything the form needs
@@ -27,7 +26,7 @@ export default async function Page() {
 
   return (
     <div className="p-10">
-      <ScoreForm subjects={allSubjects} students={allStudents} />
+     hi there
     </div>
   );
 }
