@@ -20,7 +20,7 @@ export const  Header = () => {
 				</Link>
 
 				<div className="flex flex-col leading-3">
-					<h4 className="text-2xl uppercase text-[#4c0121] font-bold">
+					<h4 className="text-xl md:text-2xl uppercase text-[#4c0121] font-bold">
 						Excelgrid Foundation School
 					</h4>
 					<p className="italic text-xs">Excellence through education...</p>
