@@ -145,3 +145,55 @@ export async function enrollStudent(formData: FormData) {
 		return { success: false, message: "failed to enroll student" };
 	}
 }
+
+
+
+export async function getStudentGrades(studentId: string, term: string) { 
+	console.log(term)
+	return db.select({
+		gradeId: grades.id,
+		subjectName: subjects.name,
+		testScore: grades.testScore,
+		examScore: grades.examScore,
+		sessionName: academicSessions.name,
+		currentTerm: academicSessions.term
+	}).from(grades)
+		.innerJoin(enrollments, eq(grades.enrollmentId, enrollments.id))
+		.innerJoin(classes, eq(enrollments.classId, classes.id))
+		.innerJoin(subjects, eq(classes.subjectId, subjects.id))
+		.innerJoin(academicSessions, eq(enrollments.sessionId, academicSessions.id))
+		.where(and(
+			eq(enrollments.studentId, studentId),
+			eq(academicSessions.isCurrent, true),
+			
+	))
+}
+
+export async function saveAllScores(data: {gradeId: string, testScore: number, examScore: number}[]) { 
+try {
+
+	 if (!Array.isArray(data) || data.length === 0) {
+			return { success: true };
+	 }
+	
+	const updatedOperations = data.map((item) => db.update(grades).set({
+		testScore: item.testScore,
+		examScore: item.examScore,
+		totalScore: item.testScore + item.examScore,
+		updatedAt: new Date()
+	}).where(eq(grades.id, item.gradeId))
+	)
+
+	await Promise.all(updatedOperations);
+	
+	revalidatePath("/teacher/students")
+	return { success: true };
+} catch (error) {
+	console.error(error)
+	 return {
+			success: false,
+			message: (error as Error)?.message ?? "Unknown error",
+		};
+}
+
+} 

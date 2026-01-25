@@ -28,7 +28,7 @@ export default function Home() {
 			</div>
 			<header className="flex w-full flex-col px-2">
 				<div className="flex w-full justify-between">
-					<div className="h-20 relative w-20 overflow-hidden">
+					<div className="h-20 relative w-20 bg-red-500 overflow-hidden">
 						<Image
 							fill
 							src="/images/excel-logo.png"
@@ -48,7 +48,7 @@ export default function Home() {
 				</div>
 			</header>
 			<section className="py-6 px-2">
-				<div className="h-70 md:h-120 lg:h-130 w-full relative overflow-hidden">
+				<div className="h-70 md:h-120 lg:h-130 w-full relative overflow-hidden rounded-sm">
 					<Image
 						fill
 						src="/images/backg.png"

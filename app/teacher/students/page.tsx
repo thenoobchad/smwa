@@ -16,7 +16,7 @@ export default async function EnrollPage() {
 					<h4>Enroll New Student</h4>
 					<EnrollStudent session={session} />
 				</div>
-				<StudentsList students={students} />
+				<StudentsList session={session} students={students} />
 			</div>
 		</div>
 	);

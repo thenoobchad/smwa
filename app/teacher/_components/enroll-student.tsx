@@ -45,7 +45,7 @@ console.log(session.id)
 			</button>
 			{isOpen && (
 				<div className="absolute top-0 left-0 w-full h-full flex items-center justify-center z-20 backdrop-blur-xs">
-					<form onSubmit={handleSubmit} className="w-[70vh] bg-white flex flex-col gap-4 p-4 border rounded-xs py-4 relative z-90">
+					<form onSubmit={handleSubmit} className="w-[70vh] mx-2 bg-white flex flex-col gap-4 p-4 border rounded-xs py-4 relative z-90">
 						<div className="py-4 flex justify-between">
 							<h4>Enter details</h4>
 							<LogOut onClick={() => setIsOpen(false)} />
