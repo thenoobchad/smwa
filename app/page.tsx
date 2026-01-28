@@ -1,11 +1,11 @@
 import { Faqs } from "@/components/faqs";
 import { HamburgerMenu } from "@/components/hamburger-menu";
-import { BetweenHorizonalEnd, BookOpenCheck, Facebook, GraduationCap, Instagram, Linkedin, MailCheck, MapPinHouse, Phone,  } from "lucide-react";
+import { BetweenHorizonalEnd, BookOpenCheck, GraduationCap, MailCheck, Phone, } from "lucide-react";
 import Image from "next/image";
 
 
 export default function Home() {
-  return (
+	return (
 		<main className="w-full mx-auto text-sm relative min-h-screen">
 			{/* Header carousel */}
 
@@ -15,46 +15,49 @@ export default function Home() {
 					Latest new - Examination for the Second Term begins soon
 				</p>
 			</div>
-			<div className="px-2 w-full text-center text-sm py-2 flex flex-col justify-center items-center gap-1 border-b mb-2 border-blue-950">
-				<span className="flex gap-2 items-center">
-					{" "}
-					<MailCheck size={16} />
-					Excel Grid International School
-				</span>
-				<p className="flex gap-2 items-center">
-					Follow Us: <Facebook size={15} /> <Linkedin size={15} />{" "}
-					<Instagram size={15} />
-				</p>
-			</div>
-			<header className="flex w-full flex-col px-2">
-				<div className="flex w-full justify-between">
-					<div className="h-20 relative w-20 overflow-hidden">
-						<Image
-							fill
-							src="/images/excel-logo.png"
-							alt="logo"
-							className="object-cover"
-						/>
-					</div>
+			<header className="px-2 w-full text-center text-sm py-3 flex justify-between items-center gap-1 border-blue-950">
+				<div className="h-20 relative w-20 overflow-hidden">
+					<Image
+						fill
+						src="/images/excel-logo.png"
+						alt="logo"
+						className="object-cover"
+					/>
+				</div>
 
-					<HamburgerMenu />
-				</div>
-				<div className="flex w-full items-center justify-center gap-2 ">
-					<span className="flex gap-2">
-						<Phone size={18} />
-						Call Us:{" "}
+				<div>
+
+					<span className="flex gap-2 items-center">
+						{" "}
+						<MailCheck size={16} />
+						Excel Grid International School
 					</span>
-					<span>08152345415</span>
+
+					<div className="flex w-full items-center justify-center gap-2 ">
+						<span className="flex gap-2">
+							<Phone size={18} />
+							Call Us:{" "}
+						</span>
+						<span>08152345415</span>
+					</div>
 				</div>
+
+				<HamburgerMenu />
 			</header>
-			<section className="py-6 px-2">
-				<div className="h-70 md:h-120 lg:h-130 w-full relative overflow-hidden rounded-sm">
+			
+			<section className=" relative">
+				<div className="h-90 md:h-120 lg:h-130 w-full relative overflow-hidden ">
 					<Image
 						fill
 						src="/images/backg.png"
 						alt="background"
 						className="object-cover w-full h-full"
 					/>
+					<div className="absolute w-full h-full z-10  bg-black/50 text-white flex items-center flex-col gap-4 justify-center">
+						<h4 className="uppercase text-2xl font-extrabold sm:text-4xl md:text-5xl text-center ">Crafting Excellence and Great Minds</h4>
+						<p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit deleniti maiores non ipsa cumque odio et incidunt dolores porro nostrum!</p>
+						
+					</div>
 				</div>
 			</section>
 

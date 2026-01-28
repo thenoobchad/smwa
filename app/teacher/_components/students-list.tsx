@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ScoreSheet } from "./score-sheet";
+
 import { getStudentGrades } from "@/lib/actions";
 import Link from "next/link";
 
@@ -48,7 +48,6 @@ export const StudentsList = ({
 	}, [students]);
 
 	
-
 	
 	return (
 		<div className="my-4 text-sm">
@@ -66,7 +65,7 @@ export const StudentsList = ({
 					<tbody className="divide-y divide-gray-200 w-full">
 						
 						{enrolledStudents.map((student) => (
-							<StudentTable key={student.id} student={student} session={session} />
+							<StudentTable key={student.id} student={student}/>
 							
 						))}
 					</tbody>
@@ -78,13 +77,12 @@ export const StudentsList = ({
 
 
 const StudentTable = ({
-	student,session
+	student
 }: {
 	student: StudentType;
-	session: SessionType;
+	
 }) => {
-	const [isOpen, setIsOpen] = useState(false);
-	const [initialData, setInitialData] = useState<InitialDataType | []>([]);
+	
 	const formatClassLevel = (level: string) => {
 		switch (level) {
 			case "JSS1":
@@ -98,11 +96,7 @@ const StudentTable = ({
 		}
 	};
 
-	const handleGrades = async (id: string, term: string) => {
-		const initial = await getStudentGrades(id, term);
-		setInitialData(initial);
-		setIsOpen(true);
-	};
+
 	return (
 		<tr >
 			<td className="px-4 py-3 text-gray-900">{student.admissionNumber}</td>

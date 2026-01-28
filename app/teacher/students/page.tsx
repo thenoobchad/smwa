@@ -14,9 +14,9 @@ export default async function EnrollPage() {
 			<div className="flex  flex-col w-full">
 				<div className="flex justify-between">
 					<h4>Enroll New Student</h4>
-					<EnrollStudent session={session} />
+				  {session ? <EnrollStudent session={session} />:"Loading..."}
 				</div>
-				<StudentsList session={session} students={students} />
+			  {students ? <StudentsList session={session} students={students} />: "Nothing to see here"}
 			</div>
 		</div>
 	);
