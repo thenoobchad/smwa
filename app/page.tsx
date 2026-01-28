@@ -2,6 +2,7 @@ import { Faqs } from "@/components/faqs";
 import { HamburgerMenu } from "@/components/hamburger-menu";
 import { BetweenHorizonalEnd, BookOpenCheck, GraduationCap, MailCheck, Phone, } from "lucide-react";
 import Image from "next/image";
+import 'animate.css';
 
 
 export default function Home() {
@@ -44,7 +45,7 @@ export default function Home() {
 
 				<HamburgerMenu />
 			</header>
-			
+
 			<section className=" relative">
 				<div className="h-[70vh] md:h-120 lg:h-130 w-full relative overflow-hidden ">
 					<Image
@@ -53,10 +54,10 @@ export default function Home() {
 						alt="background"
 						className="object-cover w-full h-full"
 					/>
-					<div className="absolute w-full h-full z-10  bg-black/50 text-white flex items-center flex-col gap-4 justify-center">
-						<div className="w-100 sm:w-180">
-						<h4 className="uppercase text-2xl font-extrabold sm:text-3xl md:text-4xl text-center ">Crafting Excellence and Great Minds</h4>
-						<p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit deleniti maiores non ipsa cumque odio et incidunt dolores porro nostrum!</p>
+					<div className="absolute w-full h-full z-10  bg-black/50 text-white flex items-center  justify-center">
+						<div className="w-100 sm:w-180 flex flex-col gap-4">
+							<h4 className="uppercase text-2xl font-extrabold sm:text-3xl md:text-4xl text-center animate__animated    animate__fadeIn">Crafting Excellence and Great Minds</h4>
+							<p className="text-center text-[16px] animate__animated animate__fadeInUp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit deleniti maiores non ipsa cumque odio et incidunt dolores porro nostrum!</p>
 						</div>
 					</div>
 				</div>
