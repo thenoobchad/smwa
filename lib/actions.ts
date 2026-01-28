@@ -146,10 +146,8 @@ export async function enrollStudent(formData: FormData) {
 	}
 }
 
-
-
-export async function getStudentGrades(studentId: string, term: string) { 
-	console.log(term)
+export async function getStudentGrades(studentId: string) { 
+	
 	return db.select({
 		gradeId: grades.id,
 		subjectName: subjects.name,
@@ -197,3 +195,10 @@ try {
 }
 
 } 
+
+export async function rankStudentsGrades(sessionId: string, term: string) {
+	return db.select({
+		studentName: students.firstName,
+		
+	})
+}

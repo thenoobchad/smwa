@@ -9,10 +9,10 @@ import { HeroSlider } from "@/components/hero-slider";
 export default function Home() {
 	return (
 		<main className="w-full mx-auto text-sm relative min-h-screen">
-			{/* Header carousel */}
+			
 
 			<div className="px-2 w-full text-center bg-[#4c0121] py-2">
-				{" "}
+				
 				<p className="text-white">
 					Latest new - Examination for the Second Term begins soon
 				</p>
@@ -63,7 +63,7 @@ export default function Home() {
 								strokeWidth={2}
 								absoluteStrokeWidth
 								size={30}
-							/>{" "}
+							/>
 						</div>
 						<div className="flex flex-col gap-2">
 							<h4 className="font-semibold text-blue-700 text-[16px] uppercase">Standard Curriculum </h4>
@@ -82,7 +82,7 @@ export default function Home() {
 						</div>
 						<div className="flex flex-col gap-2">
 							<h4 className="font-semibold  text-[16px] text-orange-700  uppercase">Certified Teachers </h4>
-							<span className="text-sm text-justify">
+							<span className="text-sm text-justify text-orange-700">
 								Led by a team of qualified educators committed to academic excellence and personalized mentorship.
 							</span>
 						</div>
