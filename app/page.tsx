@@ -46,7 +46,7 @@ export default function Home() {
 			</header>
 			
 			<section className=" relative">
-				<div className="h-90 md:h-120 lg:h-130 w-full relative overflow-hidden ">
+				<div className="h-[70vh] md:h-120 lg:h-130 w-full relative overflow-hidden ">
 					<Image
 						fill
 						src="/images/backg.png"
@@ -54,9 +54,10 @@ export default function Home() {
 						className="object-cover w-full h-full"
 					/>
 					<div className="absolute w-full h-full z-10  bg-black/50 text-white flex items-center flex-col gap-4 justify-center">
-						<h4 className="uppercase text-2xl font-extrabold sm:text-4xl md:text-5xl text-center ">Crafting Excellence and Great Minds</h4>
+						<div className="w-100 sm:w-180">
+						<h4 className="uppercase text-2xl font-extrabold sm:text-3xl md:text-4xl text-center ">Crafting Excellence and Great Minds</h4>
 						<p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit deleniti maiores non ipsa cumque odio et incidunt dolores porro nostrum!</p>
-						
+						</div>
 					</div>
 				</div>
 			</section>
