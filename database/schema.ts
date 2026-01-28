@@ -10,7 +10,6 @@ export const academicSessions = pgTable("academic_sessions", {
 	term: termEnum("term").notNull(),
 });
 
-
 export const students = pgTable("students", {
 	id: uuid("id").primaryKey().defaultRandom(),
 	firstName: varchar("first_name", { length: 100 }).notNull(),
@@ -34,22 +33,16 @@ export const classes = pgTable("classes", {
         .notNull(),
 });
 
-
-
-
 export const enrollments = pgTable("enrollments", {
     id: uuid("id").primaryKey().defaultRandom(),
     studentId: uuid("student_id").references(() => students.id, {onDelete: "cascade"}),
     classId: uuid("class_id").references(() => classes.id, {onDelete:"cascade"}),
     sessionId: uuid("session_id").references(() => academicSessions.id),
-
-    
     status: varchar("status", { length: 20 }).default("active"),
     enrolledAt: timestamp("enrolled_at").defaultNow(),
     updatedAt:timestamp("updated_at").defaultNow().notNull()
 },
-
-    (table) => [unique().on(table.studentId,table.classId,table.sessionId)
+   (table) => [unique().on(table.studentId,table.classId,table.sessionId)
 	]
 )
 
@@ -63,3 +56,5 @@ export const grades = pgTable("grades", {
 	totalScore: integer("total_score").default(0).notNull(),
 	updatedAt: timestamp("updated_at").defaultNow().notNull()
 });
+
+

@@ -2,7 +2,7 @@
 
 import { db } from "@/database/drizzzle";
 import { academicSessions, classes, enrollments, grades, students, subjects } from "@/database/schema";
-import { and, eq, } from "drizzle-orm";
+import { and, avg, eq, sql, sum, } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 export async function createActiveSession(formData: FormData) {
@@ -146,7 +146,7 @@ export async function enrollStudent(formData: FormData) {
 	}
 }
 
-export async function getStudentGrades(studentId: string) { 
+export async function getStudentGrades(studentId: string, term:string) { 
 	
 	return db.select({
 		gradeId: grades.id,
@@ -196,9 +196,28 @@ try {
 
 } 
 
-export async function rankStudentsGrades(sessionId: string, term: string) {
-	return db.select({
-		studentName: students.firstName,
+export async function getClassGrades(className:string, term: string) {
+	
+	try {
+	 
+		const scores = await db.select({
+			
+			studentName:sql<string>`${students.firstName} || ' ' || ${students.lastName}`,
+			totalScore: sum(grades.testScore),
+			average: sql<number>`round(avg(${grades.totalScore}),2)`,
+		}).from(students)
+			.innerJoin(enrollments, eq(students.id, enrollments.studentId))
+			.innerJoin(grades, eq(grades.enrollmentId, enrollments.id))
+			.innerJoin(classes, eq(classes.id, enrollments.classId))
+			.innerJoin(academicSessions, eq(academicSessions.id, enrollments.sessionId)).groupBy(students.firstName, students.lastName)
+			.where(and(
+				eq(classes.name, className),
+				eq(academicSessions.term, term as "first" | "second" | "third")
+			))
 		
-	})
+		return scores || []
+	} catch (error) {
+		console.error(error)
+	}
+	
 }

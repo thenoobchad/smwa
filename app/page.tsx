@@ -56,8 +56,8 @@ export default function Home() {
 			</section>
 
 			<section className="py-6 px-2 w-full">
-				<div className=" w-full grid gap-4 grid-cols-1 sm:grid-cols-2">
-					<div className="flex gap-2 p-4  items-center bg-blue-100">
+				<div className=" w-full grid gap-4 grid-cols-1 sm:grid-cols-2  lg:grid-cols-3">
+					<div className="flex gap-4 p-4  items-center bg-blue-100">
 						<div className="w-12 h-12 text-white rounded-full bg-blue-700  p-2">
 							<BookOpenCheck
 								strokeWidth={2}
@@ -72,7 +72,7 @@ export default function Home() {
 							</span>
 						</div>
 					</div>
-					<div className="flex gap-2 p-4 bg-orange-100 items-center">
+					<div className="flex gap-4 p-4 bg-orange-100 items-center">
 						<div className="w-12 h-12 text-white bg-orange-700 p-2 rounded-full">
 							<GraduationCap
 								strokeWidth={2}
@@ -87,7 +87,7 @@ export default function Home() {
 							</span>
 						</div>
 					</div>
-					<div className="flex gap-2 p-4 items-center bg-yellow-100">
+					<div className="flex gap-4 p-4 items-center bg-yellow-100">
 						<div className="min-w-12 h-12  bg-yellow-700  text-white rounded-full p-2 ">
 							<BetweenHorizonalEnd
 								strokeWidth={2}
@@ -109,13 +109,13 @@ export default function Home() {
 
 			<section className="py-6 px-2 w-full">
 				<div className="flex flex-col w-full justify-center items-center">
-					<h4 className="text-2xl py-1 uppercase font-bold">
-						Excel Grid International School
+					<h4 className="text-2xl py-2 uppercase font-bold w-150 md:w-full">
+						Welcome to Excelgrid International School
 					</h4>
 					<div>
 						<p className="text-justify">
 							Excelgrid Foundation School was established in 2009 with Excel
-							Nursery and Primary School, PortHarcort, Rivers, Nigeria
+							Nursery and Primary School, PortHarcort, Rivers, Nigeria. We are thrilled you are considering us for your child's educational journey. As a community, we are excited to partner with you to nuture your wards.
 						</p>
 
 						<p className="text-justify">

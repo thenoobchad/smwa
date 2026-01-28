@@ -16,7 +16,7 @@ export const BottomNav = () => {
 					active
 				/>
 				<NavItem icon={<Bell />} label="Alerts" path="" active />
-				<NavItem icon={<User />} label="Profile" path="" active />
+				<NavItem icon={<User />} label="Profile" path="/teacher/classes" active />
 			</div>
 		</nav>
 	);
