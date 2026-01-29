@@ -4,15 +4,16 @@ import { BetweenHorizonalEnd, BookOpenCheck, GraduationCap, MailCheck, Phone, } 
 import Image from "next/image";
 import 'animate.css';
 import { HeroSlider } from "@/components/hero-slider";
+import { Tab } from "@/components/tab";
 
 
 export default function Home() {
 	return (
 		<main className="w-full mx-auto text-sm relative min-h-screen">
-			
+
 
 			<div className="px-2 w-full text-center bg-[#4c0121] py-2">
-				
+
 				<p className="text-white">
 					Latest new - Examination for the Second Term begins soon
 				</p>
@@ -109,7 +110,7 @@ export default function Home() {
 
 			<section className="py-6 px-2 w-full">
 				<div className="flex flex-col w-full justify-center items-center">
-					<h4 className="text-2xl py-2 uppercase font-bold w-150 md:w-full">
+					<h4 className="text-xl py-2 uppercase font-bold ">
 						Welcome to Excelgrid International School
 					</h4>
 					<div>
@@ -138,6 +139,34 @@ export default function Home() {
 						Frequently Asked Questions
 					</h4>
 					<Faqs />
+				</div>
+			</section>
+
+			<section className=" relative">
+
+				<div className="h-[40vh] w-full relative overflow-hidden ">
+					<Image
+						fill
+						src="/images/backg.png"
+						alt="background"
+						className="object-cover w-full h-full"
+					/>
+					<div className="absolute w-full h-full z-10  bg-black/50 text-white flex items-center  justify-center">
+						<div className=" flex flex-col gap-4">
+							<h4 className="uppercase text-xl font-extrabold text-center animate__animated    animate__fadeIn">Join Our Community of Erudite Family of Scholars and explores</h4>
+							
+						</div>
+					</div>
+				</div>
+
+
+			</section>
+
+
+			<section className="py-6 px-2 w-full">
+				<div className="flex flex-col w-full justify-center items-center">
+
+					<Tab />
 				</div>
 			</section>
 

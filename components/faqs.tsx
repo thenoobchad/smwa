@@ -66,10 +66,10 @@ export const Faqs = () => {
 						</button>
 
 						<div className="flex flex-col gap-2 bg-white">
-							<h4 className="uppercase text-sm">{item.title}</h4>
+							<h4 className="uppercase text-sm  text-pink-950 p-1">{item.title}</h4>
 
 							<p
-								className={`pb-3 relative ${item.isActive ? "flex" : "hidden  transition-all delay-150"}`}>
+								className={`pb-3 relative  p-2 ${item.isActive ? "flex" : "hidden  transition-all delay-150"}`}>
 								{item.content}
 							</p>
 						</div>

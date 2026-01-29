@@ -2,7 +2,7 @@
 
 import { db } from "@/database/drizzzle";
 import { academicSessions, classes, enrollments, grades, students, subjects } from "@/database/schema";
-import { and, avg, eq, sql, sum, } from "drizzle-orm";
+import { and, avg, desc, eq, sql, sum, } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 export async function createActiveSession(formData: FormData) {
@@ -200,22 +200,22 @@ export async function getClassGrades(className:string, term: string) {
 	
 	try {
 	 
-		const scores = await db.select({
-			
+		const studentGrades = await db.select({
+			studentId: students.id,
 			studentName:sql<string>`${students.firstName} || ' ' || ${students.lastName}`,
-			totalScore: sum(grades.testScore),
+			totalScore: sum(grades.totalScore),
 			average: sql<number>`round(avg(${grades.totalScore}),2)`,
 		}).from(students)
 			.innerJoin(enrollments, eq(students.id, enrollments.studentId))
 			.innerJoin(grades, eq(grades.enrollmentId, enrollments.id))
 			.innerJoin(classes, eq(classes.id, enrollments.classId))
-			.innerJoin(academicSessions, eq(academicSessions.id, enrollments.sessionId)).groupBy(students.firstName, students.lastName)
+			.innerJoin(academicSessions, eq(academicSessions.id, enrollments.sessionId)).groupBy(students.id,students.firstName, students.lastName)
 			.where(and(
 				eq(classes.name, className),
 				eq(academicSessions.term, term as "first" | "second" | "third")
-			))
+			)).orderBy(desc(sum(grades.totalScore)))
 		
-		return scores || []
+		return studentGrades || []
 	} catch (error) {
 		console.error(error)
 	}
