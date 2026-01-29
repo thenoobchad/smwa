@@ -46,7 +46,7 @@ export const BottomNav = () => {
 					</button>
 				</div>
 				
-				<div className={`w-full p-3 left-0 bottom-0 absolute z-40 h-90 bg-white translate-y-full ${isActive && "translate-y-0!"} `}>
+				<div className={`w-full p-3 left-0 bottom-0 absolute z-40 h-90 bg-white translate-y-full transition-all delay-150 ${isActive && "translate-y-0! "} `}>
 					<div className='flex items-center  justify-center p-1'><button onClick={() => setIsActive(false)}><ChevronDown /></button></div>
 					<div className='grid grid-cols-4 gap-2'>
 						{navItems.map((item, i) => (<div key={i}  className='flex flex-col items-center gap-2 border-2 border-blue-300 p-2 cursor-pointer'>
