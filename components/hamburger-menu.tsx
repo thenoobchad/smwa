@@ -1,6 +1,7 @@
 "use client";
 
 import {
+	BookCheck,
 	ChartNoAxesGantt,
 	ChevronDown,
 	ChevronRight,
@@ -86,10 +87,13 @@ export const HamburgerMenu = () => {
 				<div
 					ref={menuRef}
 					className={`fixed z-990 top-0 p-6 pt-4 pb-4 right-0 bg-[#4c0121] h-dvh w-[60vw] sm:w-[40vw] md:w-[30vw] transition-all delay-150 ${isOpen ? "translate-x-0" : "translate-x-[200%]"}`}>
-					<ul className="text-white h-full space-y-4">
-						<button onClick={() => setIsOpen(false)}>
+					<div className="w-full text-white py-4 flex items-start">
+						<button onClick={() => setIsOpen(false)} className="">
 							<X />
 						</button>
+					</div>
+					<ul className="text-white h-full pb-20 space-y-4 flex flex-col">
+						
 						{menuList.map((menuItem, i) => {
 							if (menuItem.submenu) {
 								return (
@@ -132,13 +136,15 @@ export const HamburgerMenu = () => {
 							}
 						})}
 						<div className="flex flex-col gap-3">
-							<Link href="/enroll/">Enrol Student</Link>
+							<Link href="/enroll/" className="flex gap-3">
+								<BookCheck size={18} />
+								Enrol Student</Link>
 							<Link href="/admin/" className="flex gap-3">
 								<UserLock size={18} />
 								Admin Portal
 							</Link>
 						</div>
-						<p className="flex mt-auto text-xs gap-2 flex-col">
+						<p className="flex mt-auto justify-start items-start text-xs gap-1 flex-col">
 							<span className="flex gap-2">
 								<Phone size={15} />
 								Contact Admin:
