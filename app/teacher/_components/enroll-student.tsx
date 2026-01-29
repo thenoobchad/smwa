@@ -36,16 +36,10 @@ export const EnrollStudent = ({ session }: {
 	};
 console.log(session.id)
 	return (
-		<>
-			<button
-				onClick={() => setIsOpen(true)}
-				className="bg-blue-100 p-1 px-2 text-blue-700 flex gap-2">
-				<UserCheck />
-				Enroll Student
-			</button>
-			{isOpen && (
-				<div className="absolute top-0 left-0 w-full h-full flex items-center justify-center z-20 backdrop-blur-xs">
-					<form onSubmit={handleSubmit} className="w-[70vh] mx-2 bg-white flex flex-col gap-4 p-4 border rounded-xs py-4 relative z-90">
+		
+			
+				<div className="  w-full h-full flex items-center justify-center ">
+					<form onSubmit={handleSubmit} className=" mx-2 bg-white flex flex-col gap-4 p-4  rounded-xs py-4 ">
 						<div className="py-4 flex justify-between">
 							<h4>Enter details</h4>
 							<LogOut onClick={() => setIsOpen(false)} />
@@ -83,7 +77,6 @@ console.log(session.id)
 						<button className="bg-blue-950 p-2 text-white mt-4">Submit</button>
 					</form>
 				</div>
-			)}
-		</>
+
 	);
 };

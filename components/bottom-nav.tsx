@@ -13,12 +13,12 @@ const navItems = [
 	{
 		name: "Student Information",
 		icon: FileBadge,
-		href: "/teacher/classes"
+		href: "/teacher/students"
 	},
 	{
 		name: "Classes",
 		icon: Landmark,
-		href: "/teacher/classes"
+		href: "/teacher/students"
 	},
 	{
 		name: "Courses",
@@ -40,7 +40,7 @@ export const BottomNav = () => {
 				<NavItem
 					icon={<Plus />}
 					label="Student"
-					path="/teacher/students"
+					path="/teacher/students/enroll"
 					active
 				/>
 					<NavItem icon={<Megaphone />} label="Notice" path="" active />
