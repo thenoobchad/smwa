@@ -7,19 +7,23 @@ import Link from 'next/link';
 const navItems = [
 	{
 		name: "View Results",
-		icon: FileSliders
+		icon: FileSliders,
+		href: "/teacher/classes"
 	},
 	{
 		name: "Student Information",
-		icon: FileBadge
+		icon: FileBadge,
+		href: "/teacher/classes"
 	},
 	{
 		name: "Classes",
-		icon: Landmark
+		icon: Landmark,
+		href: "/teacher/classes"
 	},
 	{
 		name: "Courses",
-		icon: GraduationCap
+		icon: GraduationCap,
+		href: "/teacher/classes"
 	},
 ]
 
@@ -45,17 +49,20 @@ export const BottomNav = () => {
 						<p>Menu</p>
 					</button>
 				</div>
+
 				
-				<div className={`w-full p-3 left-0 bottom-0 absolute z-40 h-90 bg-white translate-y-full transition-all delay-150 ${isActive && "translate-y-0! "} `}>
+				<div className={`w-full p-3 left-0 border bottom-0 absolute z-40 h-90 bg-white translate-y-full transition-all delay-150 ${isActive && "translate-y-0! "} `}>
 					<div className='flex items-center  justify-center p-1'><button onClick={() => setIsActive(false)}><ChevronDown /></button></div>
 					<div className='grid grid-cols-4 gap-2'>
-						{navItems.map((item, i) => (<div key={i}  className='flex flex-col items-center gap-2 border-2 border-blue-300 p-2 cursor-pointer'>
+						{navItems.map((item, i) => (
+							
+							<Link href={item.href} key={i} onClick={() => setIsActive(false)} className='flex flex-col items-center gap-2 border-2 border-blue-300 p-2 cursor-pointer'>
 							<span className='h-12 w-12 flex items-center bg-blue-950 justify-center text-white'>
 
 								<item.icon />
 							</span>
 							<p className='flex text-center text-xs '>{item.name}</p>
-						</div>))}
+						</Link>))}
 					
 					</div>
 				</div>

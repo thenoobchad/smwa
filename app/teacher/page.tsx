@@ -14,7 +14,7 @@ export default function TeachersPage() {
 					</h4>
 					<div className="flex gap-4 flex-col sm:flex-row items-center justify-center">
 					  <p className="bg-blue-100 text-blue-700 p-4 border border-blue-200 w-full lg:w-fit">Manage Students Scores and generate Report Cards</p>
-					  <Link href="/teacher/classes" className='whitespace-nowrap text-sm underline flex gap-2'>View Results <ListCheck size={18} /></Link>
+					 
 					</div>
 				</div>
 				<div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
