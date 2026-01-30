@@ -36,7 +36,11 @@ export const ScoreSheet = ({ initialData }: { initialData: InitialDataType }) =>
 	return (
 		<div className=" bg-white pt-8 text-sm">
 			<div className="p-2">
+
+				<h4 className="text-lg font bold  mb-4">Subjects & Meta-Data</h4>
+
 				<table className="bg-white w-full border-collapse">
+					
 					<thead className=" text-black border-y border-zinc-300">
 						<tr className="text-left ">
 							<th className="py-2">Subjects</th>

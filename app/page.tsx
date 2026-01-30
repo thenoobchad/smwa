@@ -153,7 +153,7 @@ export default function Home() {
 					/>
 					<div className="absolute w-full h-full z-10  bg-black/50 text-white flex items-center  justify-center">
 						<div className=" flex flex-col gap-4">
-							<h4 className="uppercase text-xl font-extrabold text-center animate__animated    animate__fadeIn">Join Our Community of Erudite Family of Scholars and explores</h4>
+							<h4 className="uppercase text-xl font-extrabold text-center animate__animated    animate__fadeIn">Join Our Community of Erudite Scholars and explores</h4>
 							
 						</div>
 					</div>
@@ -182,8 +182,8 @@ export default function Home() {
 						</p>
 					</div>
 					<div>
-						<h4>About Us</h4>
-						<ul>
+						<h4 className="text-lg pb-2">About Us</h4>
+						<ul className="text-sm">
 							<li>Home</li>
 							<li>About Us</li>
 							<li>Academics</li>
@@ -191,12 +191,12 @@ export default function Home() {
 						</ul>
 					</div>
 					<div>
-						<h4>Admissions</h4>
+						<h4 className="text-lg pb-2">Admissions</h4>
 						<p>Admission Process</p>
 					</div>
 					<div>
-						<h4>Academics</h4>
-						<ul>
+						<h4 className="text-lg pb-2">Academics</h4>
+						<ul className="text-sm">
 							<li>Early Years</li>
 							<li>Primary</li>
 							<li></li>Secondary
