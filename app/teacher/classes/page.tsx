@@ -1,10 +1,10 @@
 "use client"
 
 import { getClassGrades } from '@/lib/actions'
-import { ChevronDownCircle } from 'lucide-react'
+import { ChevronDownCircle, Edit, Edit2, Edit3, FileEdit } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
-type DetailsType = {
+type StudentGradeType = {
     studentId: string;
     studentName: string;
     totalScore: string | null;
@@ -12,22 +12,21 @@ type DetailsType = {
 }[]
 
 export default function ClassesPage() {
-    const [details, setDetails] = useState<DetailsType>([])
+    const [gradeDetails, setGradeDetails] = useState<StudentGradeType>([])
 
     const [data, setData] = useState({
         class: "",
         term: ""
     })
     const handleClick = async () => {
-        console.log(data)
+      
         const res = await getClassGrades(data.class, data.term)
         if (res) {
 
-            setDetails(res)
+            setGradeDetails(res)
         }
     }
 
-    console.log("Details expected", details)
     return (
         <div>
             <h4 className='py-3 flex gap-2 items-center'>
@@ -56,7 +55,7 @@ export default function ClassesPage() {
                 <button onClick={handleClick} className='py-1.5 px-3 bg-blue-950 text-white'>Get Results</button>
             </div>
             <div className='my-6 w-full'>
-                <table className='w-full text-sm text-zinc-700'>
+                {gradeDetails && gradeDetails.length > 0 ?<table className='w-full text-sm text-zinc-700'>
                     <thead>
                         <tr className='border-b'>
                             <th className='text-left py-2'>
@@ -71,24 +70,35 @@ export default function ClassesPage() {
                             <th className='text-left py-2'>
                                 Average
                             </th>
+                            <th className='text-left py-2'>
+                                Action
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
-                        {details.map((record, i) => (
+                        {gradeDetails.map((record, i) => (
                             <tr key={record.studentId} className='border-b border-zinc-200'>
-                                <td className='text-left py-2 capitalize'>{i+1}.</td>
+                                <td className='text-left py-2 capitalize'>{i + 1}.</td>
                                 <td className='text-left py-2 capitalize'>
-                                    <Link href={`/teacher/result/${record.studentId}`}>
+                                    <Link href={`/teacher/result/${record.studentId}`} className='underline text-blue-800'>
                                         {record.studentName}
                                     </Link>
                                 </td>
 
                                 <td>{record.totalScore}</td>
-                                <td>{record?.average}</td></tr>
+                                <td>{record?.average}</td>
+                                <td>
+                                    <Link
+                                        href={`/teacher/students/${record.studentId}/scores`}
+                                        className=" text-yellow-600  cursor-pointer">
+                                        <FileEdit size={18}/>
+                                    </Link>
+                                </td>
+                            </tr>
                         ))}
                     </tbody>
-                </table>
-
+                </table> : <div className='h-full w-full items-center justify-center'><p >Nothing to see here...</p></div>
+                }
             </div>
         </div>
     )

@@ -6,9 +6,26 @@ import { eq } from "drizzle-orm"
 
 
 export async function getActiveSession() {
-    return await db.select().from(academicSessions).where(eq(academicSessions.isCurrent, true)) 
+
+    try {
+        const session = await db.select().from(academicSessions).where(eq(academicSessions.isCurrent, true)) 
+        return session || []
+    } catch (error) {
+        console.error(error)
+        return MOCK_DATA
+    }
+    
 
 }
+
+const MOCK_DATA = [
+    {
+    id: "1234",
+    name: "2024/2025",
+    isCurrent: false,
+    term: "first" as "first" | "second" | "third"
+    }
+]
 
 export async function getEnrolledStudents(sessionId:string) {
     return await db.selectDistinct({

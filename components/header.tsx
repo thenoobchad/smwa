@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const  Header = () => {
   return (
-		<header className="flex w-full flex-col px-2 py-2 bg-blue-950">
+		<header className="flex w-full flex-col px-2 py-4 bg-blue-950">
 			<div className="flex w-full justify-between items-center">
 				<Link href="/">
 					<div className="h-12 relative w-12 overflow-hidden">
@@ -23,7 +23,7 @@ export const  Header = () => {
 					<h4 className="text-xl md:text-2xl uppercase text-white font-bold">
 						EFS
 					</h4>
-				  <p className="p-1 bg-blue-700 text-xs text-zinc-50">{new Date().toLocaleDateString()}</p>
+				  <p className="p-1 bg-blue-900 text-xs text-zinc-50">{new Date().toLocaleDateString()}</p>
 				</div>
 			</div>
 		</header>

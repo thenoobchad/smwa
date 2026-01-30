@@ -11,7 +11,7 @@ const navItems = [
 		href: "/teacher/classes"
 	},
 	{
-		name: "Student Information",
+		name: "Students List",
 		icon: FileBadge,
 		href: "/teacher/students"
 	},

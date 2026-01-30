@@ -82,22 +82,7 @@ export const ScoreSheet = ({ initialData }: { initialData: InitialDataType }) =>
 					</tbody>
 				</table>
 
-				<div className="grid grid-cols-3 w-full my-4 border-y border-zinc-400 py-2">
-					<div>
-						<p>Current Position</p>
-						<p>
-							1st <span>of 34</span>
-						</p>
-					</div>
-					<div>
-						<p>Grand Total</p>
-						<p>765</p>
-					</div>
-					<div>
-						<p>Average</p>
-						<p>54.9</p>
-					</div>
-				</div>
+				
 			</div>
 			<button
 				onClick={handleSubmit}

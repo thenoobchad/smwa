@@ -19,36 +19,38 @@ export default function TeachersPage() {
 						<div className="text-fuchsia-700 bg-fuchsia-100 h-12 w-12 flex items-center justify-center">
 							<Users2 />
 						</div>
-						<div>
-							<h4 className="flex gap-2 items-center">
-								Total Students <span></span>
-							</h4>
-							<h1>1</h1>
-							<p className="text-sm text-zinc-500">1 with score entered</p>
-						</div>
+					  <div>
+
+						  <div className='flex gap-2 items-center'>
+							  <h4 className='text-xl'>58+ </h4><span className='text-sm p-1 bg-zinc-100 flex gap-1'>28.4% <ArrowUpRight size={15} /></span></div>
+						  <h4>Total Students</h4>
+
+					  </div>
 					</div>
 					<div className="border border-zinc-200 items-center p-4 flex gap-4">
 						<div className="text-red-700 bg-red-100 h-12 w-12 flex items-center justify-center">
 							<ChartArea />
 						</div>
-						<div>
-							<h4>Class Average</h4>
-							<h1>68.8%</h1>
-							<p className="text-sm text-zinc-500">Overall class performance</p>
-						</div>
+						  <div>
+						  
+						  <div className='flex gap-2 items-center'>
+							  <h4 className='text-xl'>87.3+ </h4><span className='text-sm p-1 bg-zinc-100 flex gap-1'>28.4% <ArrowUpRight size={15} /></span></div>
+						  <h4>Class Average</h4>
+						
+					  </div>
 					</div>
 
 					<div className="border border-zinc-200 items-center p-4 flex gap-4">
 						<div className="text-yellow-700 bg-yellow-100 h-12 w-12 flex items-center justify-center">
 							<BookAlert />
 						</div>
-						<div>
-							<h4>Subjects</h4>
-							<h1>8</h1>
-							<p className="text-sm text-zinc-500">
-								Standard subjects configured
-							</p>
-						</div>
+					  <div>
+
+						  <div className='flex gap-2 items-center'>
+							  <h4 className='text-xl'>15+ </h4><span className='text-sm p-1 bg-zinc-100 flex gap-1'>08.4% <ArrowUpRight size={15} /></span></div>
+						  <h4 className='text-zinc-500'>Total Subjects</h4>
+
+					  </div>
 				  </div>
 				  <div className="border border-zinc-200 items-center p-4 flex gap-4">
 					  <div className="text-green-700 bg-green-100 h-12 w-12 flex items-center justify-center">

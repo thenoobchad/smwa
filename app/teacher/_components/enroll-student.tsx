@@ -42,10 +42,7 @@ export const EnrollStudent = ({ session }: {
 			
 				<div className="  w-full h-full flex items-center justify-center ">
 					<form onSubmit={handleSubmit} className=" mx-2 bg-white flex flex-col gap-4 p-4  rounded-xs py-4 ">
-						<div className="py-4 flex justify-between">
-							<h4>Enter details</h4>
-							
-						</div>
+						
 						<div className="flex flex-col gap-2 text-sm">
 							<label htmlFor="">
 								Full Name <span className="text-red-600">*</span>

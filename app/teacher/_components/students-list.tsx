@@ -55,17 +55,18 @@ export const StudentsList = ({
 				<table className="w-full">
 					<thead className="text-left bg-gray-100">
 						<tr>
+							<th>S/N</th>
 							<th className="px-4 py-3 text-gray-900">Admission No.</th>
 							<th>Full Name</th>
 							<th>Current Level</th>
-							<th>Actions</th>
+							<th>Meta Data</th>
 						</tr>
 					</thead>
 
 					<tbody className="divide-y divide-gray-200 w-full">
 						
-						{enrolledStudents.map((student) => (
-							<StudentTable key={student.id} student={student}/>
+						{enrolledStudents.map((student, i) => (
+							<StudentTable key={student.id} student={student} i={i} />
 							
 						))}
 					</tbody>
@@ -77,10 +78,10 @@ export const StudentsList = ({
 
 
 const StudentTable = ({
-	student
+	student, i
 }: {
-	student: StudentType;
-	
+	student: StudentType,
+	i: number
 }) => {
 	
 	const formatClassLevel = (level: string) => {
@@ -99,6 +100,7 @@ const StudentTable = ({
 
 	return (
 		<tr >
+			<td>{i+1}</td>
 			<td className="px-4 py-3 text-gray-900">{student.admissionNumber}</td>
 			<td>
 				<p className="capitalize whitespace-nowrap">
@@ -110,9 +112,9 @@ const StudentTable = ({
 			<td>
 				<>
 					<Link
-						href={`/teacher/students/${student.id}/scores`}
-						className="bg-yellow-100 text-yellow-600 px-2 py-2 cursor-pointer">
-						Enter Scores
+						href={`/teacher/students/${student.id}`}
+						className="text-blue-900 cursor-pointer text-sm">
+						View Details
 					</Link>
 					
 				</>
