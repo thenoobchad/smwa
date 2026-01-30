@@ -12,6 +12,8 @@ type InitialDataType = {
 	gradeId: string;
 }[];
 
+const psychomotorSkills = ["punctuality", "neatness", "honesty", "sports"]
+
 export const ScoreSheet = ({ initialData }: { initialData: InitialDataType }) => {
 	const [rows, setRows] = useState(initialData)
 	const [isPending, startTransition] = useTransition()
@@ -82,12 +84,24 @@ export const ScoreSheet = ({ initialData }: { initialData: InitialDataType }) =>
 					</tbody>
 				</table>
 
-				
+				<div className="mt-8 border-t pt-6">
+					<h4 className="text-lg font bold  mb-4">Psychomotor & Affective Domain</h4>
+					<div className="grid grid-cols-2 gap-4">
+						{psychomotorSkills.map((skill) => (
+							<div key={skill} className="flex items-center justify-between p-1 border">
+								<span className="capitalize">{skill}</span>
+								<select name="skill" id="" className="border p-1">
+									{[1, 2, 3, 4, 5].map(num => (<option>{num}</option>))}
+								</select>
+	</div>
+						))}
+					</div>
+				</div>
 			</div>
 			<button
 				onClick={handleSubmit}
 				className="bg-blue-950 py-2 px-4 text-white mt-6">
-				{isPending ? "Saving..." : "Save  Scores"}
+				{isPending ? "Saving..." : "Save and Update Scores"}
 			</button>
 		</div>
 	);
