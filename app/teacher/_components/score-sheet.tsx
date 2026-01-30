@@ -95,7 +95,7 @@ export const ScoreSheet = ({ initialData }: { initialData: InitialDataType }) =>
 							<div key={skill} className="flex items-center justify-between p-1 border">
 								<span className="capitalize">{skill}</span>
 								<select name="skill" id="" className="border p-1">
-									{[1, 2, 3, 4, 5].map(num => (<option>{num}</option>))}
+									{[1, 2, 3, 4, 5].map(num => (<option key={num}>{num}</option>))}
 								</select>
 	</div>
 						))}

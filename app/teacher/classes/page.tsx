@@ -1,7 +1,7 @@
 "use client"
 
 import { getClassGrades } from '@/lib/actions'
-import { ChevronDownCircle, Edit, Edit2, Edit3, FileEdit } from 'lucide-react'
+import { ChevronDownCircle, Edit, Edit2, Edit3, FileEdit, ListChevronsUpDown, Receipt, ReceiptRussianRuble } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 type StudentGradeType = {
@@ -113,12 +113,20 @@ export default function ClassesPage() {
                                 <td>{record.totalScore}</td>
                                 <td>{record?.average}</td>
                                 <td>
+                                    <div className='flex gap-2'>
                                     <Link
                                         href={`/teacher/students/${record.studentId}/scores`}
                                         className=" text-yellow-600  cursor-pointer flex underline gap-2">
                                         <FileEdit size={18} />
                                         
                                     </Link>
+                                    <Link
+                                        href={`/teacher/students/${record.studentId}/report`}
+                                        className=" text-red-600  cursor-pointer flex underline gap-2">
+                                            <ListChevronsUpDown size={18} />
+
+                                        </Link>
+                                    </div>
                                 </td>
                             </tr>
                         ))}

@@ -36,7 +36,7 @@ export const BottomNav = () => {
 	  <>
 		<nav className="fixed  bottom-0 left-0 right-0 bg-blue-950 border-t border-gray-200 px-4 pb-safe">
 			<div className="h-20 flex justify-around items-center">
-				<NavItem icon={<HouseHeart />} label="Home" path="/" active />
+				<NavItem icon={<HouseHeart />} label="Home" path="/teacher" active />
 				<NavItem
 					icon={<Plus />}
 					label="Student"
