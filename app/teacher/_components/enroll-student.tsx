@@ -3,6 +3,8 @@
 import { enrollStudent } from "@/lib/actions";
 import {
 	
+	Calendar,
+	CalendarSearch,
 	Library,
 	LogOut,
 	UserCheck,
@@ -34,7 +36,7 @@ export const EnrollStudent = ({ session }: {
 			setIsOpen(false)
 		}
 	};
-console.log(session.id)
+
 	return (
 		
 			
@@ -42,7 +44,7 @@ console.log(session.id)
 					<form onSubmit={handleSubmit} className=" mx-2 bg-white flex flex-col gap-4 p-4  rounded-xs py-4 ">
 						<div className="py-4 flex justify-between">
 							<h4>Enter details</h4>
-							<LogOut onClick={() => setIsOpen(false)} />
+							
 						</div>
 						<div className="flex flex-col gap-2 text-sm">
 							<label htmlFor="">
@@ -61,20 +63,34 @@ console.log(session.id)
 						<input name="session" defaultValue={session.id} type="text" hidden />
 						<input hidden name="term" defaultValue={session.term} type="text" />
 
-						<div className="flex flex-col gap-2 text-sm">
+				<div className="flex gap-2">
+						<div className="flex flex-col gap-2 text-sm w-full">
 							<label htmlFor="">
 								Class <span className="text-red-600">*</span>
 							</label>
 							<div className="bg-zinc-100 p-2 flex text-zinc-500">
 								<select name="class" id="class" className="w-full">
-									<option value="JSS1">J.S.S. 1</option>
+									<option value="JSS1">JSS 1</option>
 									<option value="JSS2">J.S.S. 2</option>
 									<option value="JSS3">J.S.S. 3</option>
 								</select>
 								<Library />
 							</div>
+					</div>
+
+					<div className="flex flex-col gap-2 text-sm w-full">
+						<label htmlFor="">
+							Active Session <span className="text-red-600">*</span>
+						</label>
+						<div className="bg-zinc-100 p-2 flex text-zinc-500 justify-between">
+							<p className="py-0.5">{session.name}</p>
+							<Calendar size={18}/>
 						</div>
-						<button className="bg-blue-950 p-2 text-white mt-4">Submit</button>
+					</div>
+
+				</div>
+
+						<button className="bg-blue-950 p-2 text-white mt-4 text-sm">Add New Student</button>
 					</form>
 				</div>
 

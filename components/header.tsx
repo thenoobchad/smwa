@@ -6,24 +6,24 @@ import Link from 'next/link';
 
 export const  Header = () => {
   return (
-		<header className="flex w-full flex-col px-2 py-2">
+		<header className="flex w-full flex-col px-2 py-2 bg-blue-950">
 			<div className="flex w-full justify-between items-center">
 				<Link href="/">
 					<div className="h-12 relative w-12 overflow-hidden">
 						<Image
 							fill
-							src="/images/excel-logo.png"
+							src="/images/excel-logo1.png"
 							alt="logo"
 							className="object-cover"
 						/>
 					</div>
 				</Link>
 
-				<div className="flex flex-col leading-3">
-					<h4 className="text-xl md:text-2xl uppercase text-[#4c0121] font-bold">
-						Excelgrid Foundation School
+				<div className="flex gap-2 leading-3 items-center">
+					<h4 className="text-xl md:text-2xl uppercase text-white font-bold">
+						EFS
 					</h4>
-					<p className="italic text-xs">Excellence through education...</p>
+				  <p className="p-1 bg-blue-700 text-xs text-zinc-50">{new Date().toLocaleDateString()}</p>
 				</div>
 			</div>
 		</header>

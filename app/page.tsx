@@ -144,7 +144,7 @@ export default function Home() {
 
 			<section className=" relative">
 
-				<div className="h-[40vh] w-full relative overflow-hidden ">
+				<div className="h-58 w-full relative overflow-hidden ">
 					<Image
 						fill
 						src="/images/backg.png"

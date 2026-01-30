@@ -1,5 +1,5 @@
 import { Header } from '@/components/header'
-import { BookAlert, ChartArea, ListCheck, User2, Users2 } from 'lucide-react';
+import { ArrowUpRight, AxeIcon, BookAlert, ChartArea, DatabaseBackup, Inspect, ListCheck, User2, Users2 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
 
@@ -8,16 +8,13 @@ export default function TeachersPage() {
 		<div className="p-2">
 			
 			<div className="flex flex-col gap-2 w-full">
-				<div className="w-full flex gap-2 flex-col items-center">
-					<h4 className="text-lg py-4 underline">
+				<div className="w-full flex gap-1 flex-col pb-2 ">
+					<h4 className="text-2xl pt-2">
 						Welcome to the Teachers Board
 					</h4>
-					<div className="flex gap-4 flex-col sm:flex-row items-center justify-center">
-					  <p className="bg-blue-100 text-blue-700 p-4 border border-blue-200 w-full lg:w-fit">Manage Students Scores and generate Report Cards</p>
-					 
-					</div>
+					<p className='text-sm text-zinc-500'>Track real-timme school statistics and key performance metrics</p>
 				</div>
-				<div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+				<div className="grid grid-cols-2 gap-3">
 					<div className="border border-zinc-200 items-center p-4 flex gap-4">
 						<div className="text-fuchsia-700 bg-fuchsia-100 h-12 w-12 flex items-center justify-center">
 							<Users2 />
@@ -52,7 +49,19 @@ export default function TeachersPage() {
 								Standard subjects configured
 							</p>
 						</div>
-					</div>
+				  </div>
+				  <div className="border border-zinc-200 items-center p-4 flex gap-4">
+					  <div className="text-green-700 bg-green-100 h-12 w-12 flex items-center justify-center">
+						  <DatabaseBackup />
+					  </div>
+					  <div>
+						  
+						  <div className='flex gap-2 items-center'>
+							  <h4 className='text-xl'>8+ </h4><span className='text-sm p-1 bg-zinc-100 flex gap-1'>28.4% <ArrowUpRight size={15} /></span></div>
+						  <h4>Total Staffs</h4>
+						
+					  </div>
+				  </div>
 				</div>
 			</div>
 		</div>
