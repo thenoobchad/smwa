@@ -45,18 +45,34 @@ export const EnrollStudent = ({ session }: {
 						
 						<div className="flex flex-col gap-2 text-sm">
 							<label htmlFor="">
-								Full Name <span className="text-red-600">*</span>
+								First Name <span className="text-red-600">*</span>
 							</label>
 							<div className="bg-zinc-100 p-2 flex text-zinc-500">
 								<input
 									type="text"
-									name="fullName"
-									placeholder="e.g. Oluwason Lawson"
+									name="firstName"
+									placeholder="e.g. Oluwason "
 									className="w-full"
 								/>
 								<UserPlus />
 							</div>
 						</div>
+
+				<div className="flex flex-col gap-2 text-sm">
+					<label htmlFor="">
+						Last Name <span className="text-red-600">*</span>
+					</label>
+					<div className="bg-zinc-100 p-2 flex text-zinc-500">
+						<input
+							type="text"
+							name="lastName"
+							placeholder="e.g. Lawson"
+							className="w-full"
+						/>
+						<UserPlus />
+					</div>
+				</div>
+
 						<input name="session" defaultValue={session.id} type="text" hidden />
 						<input hidden name="term" defaultValue={session.term} type="text" />
 
@@ -82,6 +98,33 @@ export const EnrollStudent = ({ session }: {
 						<div className="bg-zinc-100 p-2 flex text-zinc-500 justify-between">
 							<p className="py-0.5">{session.name}</p>
 							<Calendar size={18}/>
+						</div>
+					</div>
+
+				</div>
+
+				<div className="flex gap-2">
+					<div className="flex flex-col gap-2 text-sm w-full">
+						<label htmlFor="">
+							Age <span className="text-red-600">*</span>
+						</label>
+						<div className="bg-zinc-100 p-2 flex text-zinc-500">
+							<select name="class" id="class" className="w-full">
+								<option value="JSS1">JSS 1</option>
+								<option value="JSS2">J.S.S. 2</option>
+								<option value="JSS3">J.S.S. 3</option>
+							</select>
+							<Library />
+						</div>
+					</div>
+
+					<div className="flex flex-col gap-2 text-sm w-full">
+						<label htmlFor="">
+							Active Session <span className="text-red-600">*</span>
+						</label>
+						<div className="bg-zinc-100 p-2 flex text-zinc-500 justify-between">
+							<p className="py-0.5">{session.name}</p>
+							<Calendar size={18} />
 						</div>
 					</div>
 

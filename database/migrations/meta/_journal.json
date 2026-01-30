@@ -22,6 +22,13 @@
       "when": 1769214437069,
       "tag": "0002_peaceful_nightcrawler",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1769810511709,
+      "tag": "0003_skinny_the_fallen",
+      "breakpoints": true
     }
   ]
 }

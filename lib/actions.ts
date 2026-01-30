@@ -221,3 +221,59 @@ export async function getClassGrades(className:string, term: string) {
 	}
 	
 }
+
+export async function getLevelRankings(level: string, sessionId: string) {
+	const studentTotals = db.select({
+		studentId: enrollments.studentId,
+		firstName: students.firstName,
+		lastName: students.lastName,
+		grandTotal: sql<number>`sum(${grades.totalScore})`.as("grand_total"),
+		position: sql<number>`rank() over(order by sum(${grades.totalScore}) desc)`.as("position")
+	}).from(enrollments)
+		.innerJoin(grades, eq(enrollments.id, grades.enrollmentId))
+		.innerJoin(students, eq(enrollments.studentId, students.id))
+		.innerJoin(classes, eq(enrollments.classId, classes.id))
+		.where(and(
+			eq(classes.name, level),
+			eq(enrollments.sessionId, sessionId)
+		))
+		.groupBy(enrollments.studentId, students.id)
+		.orderBy(desc(sql`grand_total`))
+	return studentTotals;
+}
+
+
+export async function getStudentReportCard(studentId: string, sessionId: string) {
+
+	try {
+		const subjectGrades = await db.select({
+		subjectName: subjects.name,
+		test: grades.testScore,
+		exam: grades.examScore,
+		total: grades.totalScore,
+	}).from(grades)
+		.innerJoin(enrollments, eq(enrollments.id, grades.enrollmentId))
+		
+		.innerJoin(classes, eq(enrollments.classId, classes.id))
+		.innerJoin(subjects, eq(classes.subjectId, subjects.id))
+		.where(and(
+			eq(enrollments.studentId, studentId),
+			eq(enrollments.sessionId, sessionId)
+		))
+		const allRankings = await getLevelRankings("JSS1", sessionId)
+
+	const studentStats = allRankings.find(r => r.studentId === studentId)
+	return {
+		grades: subjectGrades,
+		stats: studentStats,
+		classSize: allRankings.length
+	}
+		
+	} catch (error) {
+		console.error(error)
+	}
+	
+	
+	
+}
+

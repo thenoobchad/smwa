@@ -28,32 +28,57 @@ export default function ClassesPage() {
     }
 
     return (
-        <div>
+        <div className='w-full flex flex-col '>
             <h4 className='py-3 flex gap-2 items-center'>
                 Get Results for all Classes here <ChevronDownCircle size={20} className='animate-pulse' />
             </h4>
-            <div className='grid grid-cols-2 gap-4 sm:grid-cols-2 text-sm md:grid-cols-3'>
-                <div className='flex gap-3 p-1 items-center'>
-                    <label htmlFor="class">Class</label>
-                    <select name="class" id="" onChange={(e) => setData({ ...data, class: e.target.value })} className='bg-zinc-100 p-1'>
-                        <option >-- Select Class --</option>
-                        <option value="JSS1">JSS 1</option>
-                        <option value="JSS2">JSS 2</option>
-                        <option value="JSS3">JSS 3</option>
-                    </select>
-                </div>
 
-                <div className='flex gap-3 p-1 items-center'>
-                    <label htmlFor="class">Term</label>
-                    <select name="class" id="" onChange={(e) => setData({ ...data, term: e.target.value })} className='bg-zinc-100 p-1'>
-                        <option >-- Select Term --</option>
-                        <option value="first">First Term</option>
-                        <option value="second">Second Term</option>
-                        <option value="third">Third Term</option>
-                    </select>
+          
+            <div className='flex flex-col w-full  gap-2'>
+                
+                <div className='grid grid-cols-2 items-end gap-4 sm:grid-cols-2 text-sm  grid-rows-1 w-full'>
+                    <div className='flex gap-2 p-1 items-start flex-col w-full'>
+                        <label htmlFor="class">Class</label>
+                        <select name="class" id="" onChange={(e) => setData({ ...data, class: e.target.value })} className='bg-zinc-100 p-2 border border-zinc-400 w-full'>
+                            <option >Select Class</option>
+                            <option value="JSS1">JSS 1</option>
+                            <option value="JSS2">JSS 2</option>
+                            <option value="JSS3">JSS 3</option>
+                        </select>
+                    </div>
+
+                    <div className='flex gap-2 p-1 flex-col items-start'>
+                        <label htmlFor="class">Term</label>
+                        <select name="class" id="" onChange={(e) => setData({ ...data, term: e.target.value })} className='bg-zinc-100 border-zinc-400 p-2 w-full border'>
+                            <option >Select Term</option>
+                            <option value="first">First Term</option>
+                            <option value="second">Second Term</option>
+                            <option value="third">Third Term</option>
+                        </select>
+                    </div>
+
+
                 </div>
-                <button onClick={handleClick} className='py-1.5 px-3 bg-blue-950 text-white'>Get Results</button>
+               
+                <div className='grid grid-cols-2 items-end gap-4 sm:grid-cols-2 text-sm  grid-rows-1 w-full'>
+                    <div className='flex gap-2 p-1 items-start flex-col w-full'>
+                        <label htmlFor="class">Session</label>
+                        <select name="class" id="" onChange={(e) => setData({ ...data, class: e.target.value })} className='bg-zinc-100 p-2 border border-zinc-400 w-full'>
+                            <option >Select Session</option>
+                            <option value="JSS1">JSS 1</option>
+                            <option value="JSS2">JSS 2</option>
+                            <option value="JSS3">JSS 3</option>
+                        </select>
+                    </div>
+
+                    <div className='flex gap-2 p-1 flex-col items-start'>
+                        <button onClick={handleClick} className='py-2 px-3 bg-blue-950 w-fit h-fit text-white'>Search Results</button>
+                    </div>
+
+
+                </div>
             </div>
+           
             <div className='my-6 w-full'>
                 {gradeDetails && gradeDetails.length > 0 ?<table className='w-full text-sm text-zinc-700'>
                     <thead>
@@ -90,8 +115,9 @@ export default function ClassesPage() {
                                 <td>
                                     <Link
                                         href={`/teacher/students/${record.studentId}/scores`}
-                                        className=" text-yellow-600  cursor-pointer">
-                                        <FileEdit size={18}/>
+                                        className=" text-yellow-600  cursor-pointer flex underline gap-2">
+                                        <FileEdit size={18} />
+                                        
                                     </Link>
                                 </td>
                             </tr>

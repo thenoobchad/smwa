@@ -1,11 +1,17 @@
 import { PrintButton } from "@/components/print-button";
+import { getStudentReportCard } from "@/lib/actions";
+import { getActiveSession } from "@/lib/queries";
 
 
 
 export default async function ReportCard({ params }: { params: Promise<{ studentId: string }> }) {
     
-    const { studentId } = await params
-    
+  const { studentId } = await params
+  
+  const [session] = await getActiveSession()
+  const data = await getStudentReportCard(studentId, session.id) 
+   
+  if(!data) return 
    
   return (
     <div>
@@ -18,7 +24,7 @@ export default async function ReportCard({ params }: { params: Promise<{ student
 
       <div className="grid grid-cols-2 mb-6 text-sm">
         <div>
-          <p><strong>NAME: </strong>Elueme Chidi Henry</p>
+            <p className="uppercase"><strong>NAME: </strong>{data?.stats?.firstName} {data?.stats?.lastName}</p>
           <p><strong>LEVEL: </strong>JSS1</p>
         </div>
         <div className="text-right">
@@ -27,26 +33,26 @@ export default async function ReportCard({ params }: { params: Promise<{ student
         </div>
       </div>
 
-      <table className="w-full border-collapse border border-black mb-6">
-        <thead>
-          <tr className="bg-gray-200">
-            <th>SUBJECT</th>
-            <th>TEST</th>
-            <th>EXAM</th>
-            <th>TOTAL</th>
-            <th>GRADE</th>
-          </tr>
-        </thead>
-        <tbody>
-            {Array.from({ length: 10 }).map((_, i) => <tr key={i} className="text-center">
-              <td className="border border-black p-2 text-left font-medium">Mathematics</td>
-              <td className="border border-black p-2">30</td>
-              <td className="border border-black p-2">60</td>
-              <td className="border border-black p-2">90</td>
-              <td className="border border-black p-2">A</td>
+        {data && <table className="w-full border-collapse border border-black mb-6">
+          <thead>
+            <tr className="bg-gray-200">
+              <th>SUBJECT</th>
+              <th>TEST</th>
+              <th>EXAM</th>
+              <th>TOTAL</th>
+              <th>GRADE</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.grades.map((g) => <tr key={g.subjectName} className="text-center">
+              <td className="border border-black p-2 text-left font-medium">{g.subjectName}</td>
+              <td className="border border-black p-2">{g.test}</td>
+              <td className="border border-black p-2">{g.exam}</td>
+              <td className="border border-black p-2">{g.total}</td>
+              <td className="border border-black p-2">{calaculateGrades(g.total)}</td>
             </tr>)}
-        </tbody>
-      </table>
+          </tbody>
+        </table>}
 
         <div className="grid grid-cols-2 gap-8 my-6">
           <table className="w-full border-collapse border border-black text-xs">
@@ -82,11 +88,11 @@ export default async function ReportCard({ params }: { params: Promise<{ student
       <div className="grid grid-cols-3 gap-4 border-t-2 border-black pt-4">
         <div className="text-center">
           <p className="text-xs uppercase">Total Score</p>
-          <p className="text-xl font-bold">378</p>
+            <p className="text-xl font-bold">{data.stats?.grandTotal}</p>
         </div>
         <div className="text-center">
           <p className="text-xs uppercase">Position</p>
-          <p className="text-xl font-bold">1ST of 29</p>
+            <p className="text-xl font-bold">{data.stats?.position} of {data.classSize}</p>
         </div>
         <div className="text-center">
           <p className="text-xs uppercase">Desicion</p>
@@ -107,5 +113,5 @@ function calaculateGrades(score: number) {
   if (score >= 75) return "A1";
   if (score >= 65) return "B2";
   if (score >= 50) return "C";
-  return "F91"
+  return "F9"
 }

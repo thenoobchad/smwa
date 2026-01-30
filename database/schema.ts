@@ -1,4 +1,4 @@
-import {boolean, integer, pgEnum, pgTable, timestamp, unique, uuid, varchar} from "drizzle-orm/pg-core"
+import {boolean, integer, pgEnum, pgTable, text, timestamp, unique, uuid, varchar} from "drizzle-orm/pg-core"
 
 export const termEnum = pgEnum("term", ["first", "second", "third"])
 
@@ -57,4 +57,23 @@ export const grades = pgTable("grades", {
 	updatedAt: timestamp("updated_at").defaultNow().notNull()
 });
 
+
+export const studentReport = pgTable("student_reports", {
+	id: uuid("id").primaryKey().defaultRandom(),
+	studentId: uuid("student_id")
+		.notNull()
+		.references(() => students.id),
+	sessionId: uuid("session_id")
+		.notNull()
+		.references(() => academicSessions.id),
+	
+	
+	punctuality: integer("punctuality").default(3),
+	neatness: integer("neatness").default(3),
+	honesty: integer("honesty").default(3),
+	sport: integer("sport").default(3),
+
+	teacherRemark: text("teacher_remark"),
+	principalRemark: text("principal_remark"),
+});
 
