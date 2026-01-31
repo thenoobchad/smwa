@@ -66,7 +66,7 @@ export default function TeachersPage() {
 						</div>
 					</div>
 				</div>
-				<div className='w-full py-4 flex items-center justify-center'>
+				<div className='w-full py-4 flex items-center justify-center p-1'>
 					<ChartView />
 				</div>
 			</div>
