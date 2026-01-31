@@ -1,20 +1,18 @@
 "use client"
 
-import React, { useState } from 'react';
-import Chart from 'react-apexcharts';
+
 import { ApexOptions } from 'apexcharts';
+import dynamic from 'next/dynamic';
 
 
-interface DonutState {
-    series: number[];
-    options: ApexOptions;
-}
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 export const ChartView = () => {
   
-    const [chartData] = useState<DonutState>({
-        series: [44, 55, 41],
-        options: {
+
+    const series = [44, 55, 41]
+    const options: ApexOptions = {
             chart: {
                 type: 'donut',
             },
@@ -30,14 +28,13 @@ export const ChartView = () => {
                     }
                 }
             }]
-        },
-    });
+    }
 
     return (
         <div className="donut">
             <Chart
-                options={chartData.options}
-                series={chartData.series}
+                options={options}
+                series={series}
                 type="donut"
                 width="380"
             />
