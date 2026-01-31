@@ -1,8 +1,7 @@
-import { Header } from '@/components/header'
-import { ArrowUpRight, AxeIcon, BookAlert, ChartArea, DatabaseBackup, Inspect, ListCheck, User2, Users2 } from 'lucide-react';
-import Link from 'next/link';
-import React from 'react'
-import { ChartView } from './_components/chart';
+
+import { ArrowUpRight,  BookAlert, ChartArea, DatabaseBackup, Users2 } from 'lucide-react';
+
+import { ChartView } from './_components/chart-view';
 
 export default function TeachersPage() {
 	return (
