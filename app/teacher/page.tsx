@@ -5,7 +5,7 @@ import { ChartView } from './_components/chart-view';
 
 export default function TeachersPage() {
 	return (
-		<div className="p-2">
+		<div className="p-2 bg-zinc-100">
 
 			<div className="flex flex-col gap-2 w-full">
 				<div className="w-full flex gap-1 flex-col pb-2 ">
@@ -15,7 +15,7 @@ export default function TeachersPage() {
 					<p className='text-sm text-zinc-500'>Track real-timme school statistics and key performance metrics</p>
 				</div>
 				<div className="grid grid-cols-2 gap-3">
-					<div className="border border-zinc-200 items-center p-4 flex gap-4">
+					<div className="border border-zinc-200 bg-white items-center p-4 flex gap-4">
 						<div className="text-fuchsia-700 bg-fuchsia-100 h-12 w-12 flex items-center justify-center">
 							<Users2 />
 						</div>
@@ -27,7 +27,7 @@ export default function TeachersPage() {
 
 						</div>
 					</div>
-					<div className="border border-zinc-200 items-center p-4 flex gap-4">
+					<div className="border bg-white border-zinc-200 items-center p-4 flex gap-4">
 						<div className="text-red-700 bg-red-100 h-12 w-12 flex items-center justify-center">
 							<ChartArea />
 						</div>
@@ -40,7 +40,7 @@ export default function TeachersPage() {
 						</div>
 					</div>
 
-					<div className="border border-zinc-200 items-center p-4 flex gap-4">
+					<div className="border bg-white border-zinc-200 items-center p-4 flex gap-4">
 						<div className="text-yellow-700 bg-yellow-100 h-12 w-12 flex items-center justify-center">
 							<BookAlert />
 						</div>
@@ -52,7 +52,7 @@ export default function TeachersPage() {
 
 						</div>
 					</div>
-					<div className="border border-zinc-200 items-center p-4 flex gap-4">
+					<div className="border bg-white border-zinc-200 items-center p-4 flex gap-4">
 						<div className="text-green-700 bg-green-100 h-12 w-12 flex items-center justify-center">
 							<DatabaseBackup />
 						</div>
