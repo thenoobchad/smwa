@@ -1,7 +1,7 @@
 "use client"
 
 import { getClassGrades } from '@/lib/actions'
-import { ChevronDownCircle, Edit, Edit2, Edit3, FileEdit, ListChevronsUpDown, Receipt, ReceiptRussianRuble } from 'lucide-react'
+import { ChevronDownCircle, Edit, Edit2, Edit3, FileEdit, ListChevronsUpDown, PanelsTopLeft, Receipt, ReceiptRussianRuble } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 type StudentGradeType = {
@@ -39,12 +39,15 @@ export default function ClassesPage() {
                 <div className='grid grid-cols-2 items-end gap-4 sm:grid-cols-2 text-sm  grid-rows-1 w-full'>
                     <div className='flex gap-2 p-1 items-start flex-col w-full'>
                         <label htmlFor="class">Class</label>
-                        <select name="class" id="" onChange={(e) => setData({ ...data, class: e.target.value })} className='bg-zinc-100 p-2 border border-zinc-400 w-full'>
+                        <div className='bg-zinc-100 w-full flex p-2.5 gap-2 items-center text-zinc-500'>
+                            
+                            <select name="class" id="" onChange={(e) => setData({ ...data, class: e.target.value })} className=' w-full'>
                             <option >Select Class</option>
                             <option value="JSS1">JSS 1</option>
                             <option value="JSS2">JSS 2</option>
                             <option value="JSS3">JSS 3</option>
-                        </select>
+                            </select>
+                        </div>
                     </div>
 
                     <div className='flex gap-2 p-1 flex-col items-start'>

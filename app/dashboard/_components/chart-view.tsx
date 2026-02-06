@@ -37,7 +37,7 @@ export const ChartView = () => {
                 
             }]
     }
-
+                        
     return (
         <div className="w-full bg-white p-1 border border-zinc-200">
             <Chart

@@ -1,4 +1,4 @@
-import { ScoreSheet } from "@/app/teacher/_components/score-sheet"
+import { ScoreSheet } from "@/app/dashboard/_components/score-sheet"
 import { db } from "@/database/drizzzle"
 import { students } from "@/database/schema"
 

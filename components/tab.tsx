@@ -83,10 +83,10 @@ export const Tab = () => {
 
     const [activeLink, setActiveLink] = useState("benefits")
   return (
-      <div>
-          <div className="flex gap-4 bg-zinc-100 p-2 px-3">
+      <div className="w-full flex flex-col items-center">
+          <div className="flex gap-4 bg-zinc-100 p-2 px-3 w-fit items-center justify-center ">
               {tabs.map((link, i) => (
-                  <button key={i} onClick={() => setActiveLink(link.tab)} className={`${link.tab === activeLink && "font-bold"} uppercase`}>{link.name}</button>
+                  <button key={i} onClick={() => setActiveLink(link.tab)} className={`${link.tab === activeLink && "font-extrabold underline underline-offset-8"} uppercase`}>{link.name}</button>
               ))}
              
           </div>

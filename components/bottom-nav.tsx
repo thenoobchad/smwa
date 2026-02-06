@@ -1,6 +1,6 @@
 "use client"
 import React, { ReactNode, useState } from 'react'
-import {Home, Search, Bell, User, Plus, LayoutGrid, Megaphone, HouseHeart, Subtitles, ChevronDown, FileSliders, FileBadge, Landmark, GraduationCap} from "lucide-react"
+import { Plus, LayoutGrid, Megaphone, HouseHeart, Subtitles, ChevronDown, FileSliders, FileBadge, Landmark, GraduationCap, ToolCase} from "lucide-react"
 import Link from 'next/link';
 
 
@@ -8,22 +8,27 @@ const navItems = [
 	{
 		name: "View Results",
 		icon: FileSliders,
-		href: "/teacher/classes"
+		href: "/dashboard/classes"
 	},
 	{
 		name: "Students List",
 		icon: FileBadge,
-		href: "/teacher/students"
+		href: "/dashboard/students"
 	},
 	{
 		name: "Classes",
 		icon: Landmark,
-		href: "/teacher/students"
+		href: "/dashboard/students"
 	},
 	{
 		name: "Courses",
 		icon: GraduationCap,
-		href: "/teacher/classes"
+		href: "/dashboard/classes"
+	},
+	{
+		name: "Configuration",
+		icon: ToolCase,
+		href: "/dashboard/configuration"
 	},
 ]
 
@@ -36,11 +41,11 @@ export const BottomNav = () => {
 	  <>
 		<nav className="fixed  bottom-0 left-0 right-0 bg-blue-950 border-t border-gray-200 px-4 pb-safe">
 			<div className="h-20 flex justify-around items-center">
-				<NavItem icon={<HouseHeart />} label="Home" path="/teacher" active />
+				<NavItem icon={<HouseHeart />} label="Home" path="/dashboard" active />
 				<NavItem
 					icon={<Plus />}
 					label="Student"
-					path="/teacher/students/enroll"
+					path="/dashboard/students/enroll"
 					active
 				/>
 					<NavItem icon={<Megaphone />} label="Notice" path="" active />

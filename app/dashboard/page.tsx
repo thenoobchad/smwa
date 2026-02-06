@@ -3,14 +3,14 @@ import { ArrowUpRight,  BookAlert, ChartArea, DatabaseBackup, Users2 } from 'luc
 
 import { ChartView } from './_components/chart-view';
 
-export default function TeachersPage() {
+export default function DashboardPage() {
 	return (
 		<div className="p-2 bg-zinc-100">
 
 			<div className="flex flex-col gap-2 w-full">
 				<div className="w-full flex gap-1 flex-col pb-2 ">
 					<h4 className="text-2xl pt-2">
-						Welcome to the Teachers Board
+						Welcome back, 
 					</h4>
 					<p className='text-sm text-zinc-500'>Track real-timme school statistics and key performance metrics</p>
 				</div>

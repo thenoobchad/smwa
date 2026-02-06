@@ -18,7 +18,7 @@ export default function Home() {
 					Latest new - Examination for the Second Term begins soon
 				</p>
 			</div>
-			<header className="px-2 w-full text-center text-sm py-3 flex justify-between items-center gap-1 border-blue-950">
+			<header className="px-2 w-full text-center text-sm py-3 flex justify-between items-center gap-1 border-blue-950 bg-zinc-50">
 				<div className="h-20 relative w-20 overflow-hidden">
 					<Image
 						fill
@@ -30,10 +30,10 @@ export default function Home() {
 
 				<div>
 
-					<span className="flex gap-2 items-center">
+					<span className="flex gap-2 items-center text-xl">
 						{" "}
-						<MailCheck size={16} />
-						Excel Grid International School
+					
+						Excelgrip International School
 					</span>
 
 					<div className="flex w-full items-center justify-center gap-2 ">
@@ -164,7 +164,7 @@ export default function Home() {
 
 
 			<section className="py-6 px-2 w-full">
-				<div className="flex flex-col w-full justify-center items-center">
+				<div className="flex flex-col  justify-center items-center h-[50vh] ">
 
 					<Tab />
 				</div>
@@ -178,7 +178,7 @@ export default function Home() {
 						</p>
 						<p className="flex flex-col">
 							<span>0815285143</span>
-							<span>chinyereelueme@gmail.com</span>
+							<span>excelgrip@gmail.com</span>
 						</p>
 					</div>
 					<div>

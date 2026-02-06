@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local"
-
+import { Toaster} from 'sonner';
 import "./globals.css";
 
 
@@ -22,9 +22,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`overflow-x-hidden relative antialiased min-h-screen ${poppins.className}`}
+        className={`overflow-x-hidden relative antialiased min-h-screen ${poppins.className} `}
       >
         {children}
+        <Toaster richColors position="top-center"
+        
+          toastOptions={{
+            style: {  borderRadius: '1px ' },
+            classNames: {
+              title: 'text-[16px]', 
+              description: 'text-[16px]',
+            },
+          }}
+        />
       </body>
     </html>
   );

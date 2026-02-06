@@ -61,56 +61,51 @@ export async function createActiveSession(formData: FormData) {
 }
 
 export async function enrollStudent(formData: FormData) {
-	
-	const fullNameValue = formData.get("fullName");
-	const levelValue = formData.get("class");
-	const sessionIdValue = formData.get("session");
-	const termValue = formData.get("term");
 
+	const firstNameValue = String(formData.get("firstName")).trim().normalize();
+	const lastNameValue = String(formData.get("lastName")).trim().normalize();
+	const levelValue = String(formData.get("class")).trim();
+	const sessionIdValue = String(formData.get("session")).trim();
+	const termValue = String(formData.get("term")).trim();
 	if (
-		typeof fullNameValue !== "string" ||
-		typeof levelValue !== "string" ||
-		typeof sessionIdValue !== "string"
+		!firstNameValue ||
+		!lastNameValue ||
+		!levelValue ||
+		!sessionIdValue
 	) {
-		throw new Error("Enter complete details.");
+		return { success: false, message: "Enter complete details." };
 	}
 
-	const fullName = fullNameValue.trim();
-	const level = levelValue.trim();
-	const sessionId = sessionIdValue.trim();
-	const term = typeof termValue === "string" ? termValue.trim() : undefined;
-
 	
-	const [firstName, ...rest] = fullName.split(/\s+/);
-	const lastName = rest.join(" ");
 	const admissionNum = `AD-${Date.now()}`;
 
 	try {
 		let levelClasses = await db
 			.select()
 			.from(classes)
-			.where(and(eq(classes.name, level), eq(classes.sessionId, sessionId)));
+			.where(and(eq(classes.name, levelValue), eq(classes.sessionId, sessionIdValue)));
 
 		if (levelClasses.length === 0) {
 			const allSubject = await db.select().from(subjects);
 
 			if (allSubject.length > 0) {
+				const inserted = await db.insert(classes).values(
+					allSubject.map((sub) => ({
+						name: levelValue,
+						subjectId: sub.id,
+						sessionId: sessionIdValue
+					}))
+				).returning()
 				
+				levelClasses = inserted
 			}
-			const inserted = await db.insert(classes).values(
-				allSubject.map((sub) => ({
-					name: level,
-					subjectId: sub.id,
-					sessionId: sessionId
-				}))
-			).returning()
+			
 
-			levelClasses = inserted
 		}
 
 		const [newStudent] = await db.insert(students).values({
-			firstName: firstName,
-			lastName: lastName,
+			firstName: firstNameValue,
+			lastName: lastNameValue,
 			admissionNumber: admissionNum
 		}).returning()
 
@@ -119,8 +114,8 @@ export async function enrollStudent(formData: FormData) {
 			id: crypto.randomUUID(),
 			studentId: newStudent.id,
 			classId: cls.id,
-			sessionId: sessionId,
-			term: term
+			sessionId: sessionIdValue,
+			term: termValue
 		}))
 
 
@@ -128,7 +123,7 @@ export async function enrollStudent(formData: FormData) {
 			enrollmentId: enrol.id,
 			textScore: 0,
 			examScore: 0,
-			totalScore:0
+			totalScore: 0
 		}))
 
 
@@ -138,16 +133,16 @@ export async function enrollStudent(formData: FormData) {
 		])
 
 		revalidatePath("/teacher/enroll");
-		return {success: true}
-	
+		return { success: true }
+
 	} catch (error) {
 		console.error(error);
 		return { success: false, message: "failed to enroll student" };
 	}
 }
 
-export async function getStudentGrades(studentId: string, term:string) { 
-	
+export async function getStudentGrades(studentId: string, term: string) {
+
 	return db.select({
 		gradeId: grades.id,
 		subjectName: subjects.name,
@@ -163,63 +158,63 @@ export async function getStudentGrades(studentId: string, term:string) {
 		.where(and(
 			eq(enrollments.studentId, studentId),
 			eq(academicSessions.isCurrent, true),
-			
-	))
+
+		))
 }
 
-export async function saveAllScores(data: {gradeId: string, testScore: number, examScore: number}[]) { 
-try {
+export async function saveAllScores(data: { gradeId: string, testScore: number, examScore: number }[]) {
+	try {
 
-	 if (!Array.isArray(data) || data.length === 0) {
+		if (!Array.isArray(data) || data.length === 0) {
 			return { success: true };
-	 }
-	
-	const updatedOperations = data.map((item) => db.update(grades).set({
-		testScore: item.testScore,
-		examScore: item.examScore,
-		totalScore: item.testScore + item.examScore,
-		updatedAt: new Date()
-	}).where(eq(grades.id, item.gradeId))
-	)
+		}
 
-	await Promise.all(updatedOperations);
-	
-	revalidatePath("/teacher/students")
-	return { success: true };
-} catch (error) {
-	console.error(error)
-	 return {
+		const updatedOperations = data.map((item) => db.update(grades).set({
+			testScore: item.testScore,
+			examScore: item.examScore,
+			totalScore: item.testScore + item.examScore,
+			updatedAt: new Date()
+		}).where(eq(grades.id, item.gradeId))
+		)
+
+		await Promise.all(updatedOperations);
+
+		revalidatePath("/teacher/students")
+		return { success: true };
+	} catch (error) {
+		console.error(error)
+		return {
 			success: false,
 			message: (error as Error)?.message ?? "Unknown error",
 		};
+	}
+
 }
 
-} 
+export async function getClassGrades(className: string, term: string) {
 
-export async function getClassGrades(className:string, term: string) {
-	
 	try {
-	 
+
 		const studentGrades = await db.select({
 			studentId: students.id,
-			studentName:sql<string>`${students.firstName} || ' ' || ${students.lastName}`,
+			studentName: sql<string>`${students.firstName} || ' ' || ${students.lastName}`,
 			totalScore: sum(grades.totalScore),
 			average: sql<number>`round(avg(${grades.totalScore}),2)`,
 		}).from(students)
 			.innerJoin(enrollments, eq(students.id, enrollments.studentId))
 			.innerJoin(grades, eq(grades.enrollmentId, enrollments.id))
 			.innerJoin(classes, eq(classes.id, enrollments.classId))
-			.innerJoin(academicSessions, eq(academicSessions.id, enrollments.sessionId)).groupBy(students.id,students.firstName, students.lastName)
+			.innerJoin(academicSessions, eq(academicSessions.id, enrollments.sessionId)).groupBy(students.id, students.firstName, students.lastName)
 			.where(and(
 				eq(classes.name, className),
 				eq(academicSessions.term, term as "first" | "second" | "third")
 			)).orderBy(desc(sum(grades.totalScore)))
-		
+
 		return studentGrades || []
 	} catch (error) {
 		console.error(error)
 	}
-	
+
 }
 
 export async function getLevelRankings(level: string, sessionId: string) {
@@ -247,33 +242,33 @@ export async function getStudentReportCard(studentId: string, sessionId: string)
 
 	try {
 		const subjectGrades = await db.select({
-		subjectName: subjects.name,
-		test: grades.testScore,
-		exam: grades.examScore,
-		total: grades.totalScore,
-	}).from(grades)
-		.innerJoin(enrollments, eq(enrollments.id, grades.enrollmentId))
-		
-		.innerJoin(classes, eq(enrollments.classId, classes.id))
-		.innerJoin(subjects, eq(classes.subjectId, subjects.id))
-		.where(and(
-			eq(enrollments.studentId, studentId),
-			eq(enrollments.sessionId, sessionId)
-		))
+			subjectName: subjects.name,
+			test: grades.testScore,
+			exam: grades.examScore,
+			total: grades.totalScore,
+		}).from(grades)
+			.innerJoin(enrollments, eq(enrollments.id, grades.enrollmentId))
+
+			.innerJoin(classes, eq(enrollments.classId, classes.id))
+			.innerJoin(subjects, eq(classes.subjectId, subjects.id))
+			.where(and(
+				eq(enrollments.studentId, studentId),
+				eq(enrollments.sessionId, sessionId)
+			))
 		const allRankings = await getLevelRankings("JSS1", sessionId)
 
-	const studentStats = allRankings.find(r => r.studentId === studentId)
-	return {
-		grades: subjectGrades,
-		stats: studentStats,
-		classSize: allRankings.length
-	}
-		
+		const studentStats = allRankings.find(r => r.studentId === studentId)
+		return {
+			grades: subjectGrades,
+			stats: studentStats,
+			classSize: allRankings.length
+		}
+
 	} catch (error) {
 		console.error(error)
 	}
-	
-	
-	
+
+
+
 }
 

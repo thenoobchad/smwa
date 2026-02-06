@@ -1,15 +1,10 @@
 "use client";
 
 import {
-	BookCheck,
-	ChartNoAxesGantt,
-	ChevronDown,
-	ChevronRight,
-	Folder,
-	PersonStandingIcon,
-	Phone,
-	UserLock,
-	Users,
+	
+	LayoutDashboard,
+	LogIn,
+	
 	X,
 } from "lucide-react";
 import Link from "next/link";
@@ -18,35 +13,14 @@ import { useEffect, useRef, useState } from "react";
 
 const menuList = [
 	{
-		title: "teacher",
-		icon: PersonStandingIcon,
+		title: "dashboard",
+		icon: LayoutDashboard,
 	},
 	{
-		title: "students",
-		icon: Users,
-	},
-	{
-		title: "sessions",
-		icon: ChartNoAxesGantt,
-	},
-	{
-		title: "classes",
-		icon: Folder,
-		submenu: [
-			{
-				title: "jss 1",
-				href: "jss1",
-			},
-			{
-				title: "jss 2",
-				href: "jss2",
-			},
-			{
-				title: "jss 3",
-				href: "jss3",
-			},
-		],
-	},
+		title: "Sign in",
+		icon: LogIn,
+	}
+
 ];
 
 export const HamburgerMenu = () => {
@@ -86,71 +60,34 @@ export const HamburgerMenu = () => {
 			{isOpen && (
 				<div
 					ref={menuRef}
-					className={`fixed z-990 top-0 p-6 pt-4 pb-4 right-0 bg-[#4c0121] h-dvh w-[60vw] sm:w-[40vw] md:w-[30vw] transition-all delay-150 ${isOpen ? "translate-x-0" : "translate-x-[200%]"}`}>
-					<div className="w-full text-white py-4 flex items-start">
+					className={`absolute z-990 top-0 p-4 pt-2 pb-2 right-0 bg-[#4c0121] transition-all delay-150 ${isOpen ? "translate-x-0" : "translate-x-[200%]"}`}>
+					<div className="w-full text-white py-1 flex items-start">
 						<button onClick={() => setIsOpen(false)} className="">
 							<X />
 						</button>
 					</div>
-					<ul className="text-white h-full pb-20 space-y-4 flex flex-col">
+					<ul className="text-white h-full  space-y-4 flex flex-col">
 						
 						{menuList.map((menuItem, i) => {
-							if (menuItem.submenu) {
 								return (
 									<div key={i} className="flex flex-col gap-2 w-full ">
+										<Link href={`/${menuItem.title}`}>
 										<li
 											onClick={() => setIsSubActive(!isSubActive)}
-											className="   capitalize p-1 flex gap-3 items-center  blue-pink-900 cursor-pointer">
+											className="   capitalize p-1 flex gap-3 items-center  blue-pink-900 cursor-pointer underline">
 											<menuItem.icon size={18} />
 											{menuItem.title}
-											<span className="ml-auto">
-												{isSubActive ?
-													<ChevronDown size={18} />
-												:	<ChevronRight size={18} />}
-											</span>
-										</li>
-										{isSubActive && (
-											<ul className="ml-7  flex flex-col gap-2">
-												{menuItem.submenu?.map((nav) => (
-													<Link
-														href={`/class/${nav.href}`}
-														className="uppercase"
-														key={nav.href}>
-														{nav.title}
-													</Link>
-												))}
-											</ul>
-										)}
+										
+											</li>
+										</Link>
+										
 									</div>
-								);
-							} else {
-								return (
-									<Link
-										key={i}
-										href={`/${menuItem.title}`}
-										className="capitalize p-1 flex gap-3 items-center  blue-pink-900 cursor-pointer">
-										<menuItem.icon size={18} />
-										{menuItem.title}
-									</Link>
-								);
-							}
+								)
+							
+							
+						
 						})}
-						<div className="flex flex-col gap-3">
-							<Link href="/enroll/" className="flex gap-3">
-								<BookCheck size={18} />
-								Enrol Student</Link>
-							<Link href="/admin/" className="flex gap-3">
-								<UserLock size={18} />
-								Admin Portal
-							</Link>
-						</div>
-						<p className="flex mt-auto justify-start items-start text-xs gap-1 flex-col">
-							<span className="flex gap-2">
-								<Phone size={15} />
-								Contact Admin:
-							</span>
-							<span>+234 806 815 66 22</span>
-						</p>
+		
 					</ul>
 				</div>
 			)}
