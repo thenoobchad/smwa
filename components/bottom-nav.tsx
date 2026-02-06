@@ -1,8 +1,8 @@
 "use client"
 import React, { ReactNode, useState } from 'react'
-import { Plus, LayoutGrid, Megaphone, HouseHeart, Subtitles, ChevronDown, FileSliders, FileBadge, Landmark, GraduationCap, ToolCase} from "lucide-react"
+import { Plus, LayoutGrid, Megaphone, HouseHeart, ChevronDown, FileSliders, FileBadge, Landmark, GraduationCap, Cog} from "lucide-react"
 import Link from 'next/link';
-
+import {FaPeopleGroup} from "react-icons/fa6"
 
 const navItems = [
 	{
@@ -12,7 +12,7 @@ const navItems = [
 	},
 	{
 		name: "Students List",
-		icon: FileBadge,
+		icon: FaPeopleGroup,
 		href: "/dashboard/students"
 	},
 	{
@@ -27,7 +27,7 @@ const navItems = [
 	},
 	{
 		name: "Configuration",
-		icon: ToolCase,
+		icon: Cog,
 		href: "/dashboard/configuration"
 	},
 ]
@@ -63,7 +63,7 @@ export const BottomNav = () => {
 							
 							<Link href={item.href} key={i} onClick={() => setIsActive(false)} className='flex flex-col items-center gap-2 border-2 border-blue-300 p-2 cursor-pointer'>
 							<span className='h-12 w-12 flex items-center bg-blue-950 justify-center text-white'>
-
+									
 								<item.icon />
 							</span>
 							<p className='flex text-center text-xs '>{item.name}</p>
