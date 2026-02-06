@@ -8,8 +8,12 @@ export default async function ReportCard({ params }: { params: Promise<{ student
     
   const { studentId } = await params
   
-  const [session] = await getActiveSession()
-  const data = await getStudentReportCard(studentId, session.id) 
+  const session = await getActiveSession()
+
+  if (!session || session.length === 0) return 
+
+  const activeSession = session[0]
+  const data = await getStudentReportCard(studentId, activeSession.id) 
    
   if(!data) return 
    
